@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Position : MonoBehaviour
 {
+    //will change from static later, just want to test this
+    public static GameObject charReference;
     public GameObject character;
     public bool occupied;
     public PositionManager pm;
@@ -50,6 +52,8 @@ public class Position : MonoBehaviour
                 {
                     Debug.Log("Clicked on: " + character.name);
                     pm.selectedCharacter = character;
+                    charReference = character;
+                    print("CHARACTER: " + charReference.name);
                     pm.selectedCharacterlocation = this.gameObject;
                 }
                 else if (character.tag == "Enemy")
