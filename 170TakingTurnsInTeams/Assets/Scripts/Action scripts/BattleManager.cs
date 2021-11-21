@@ -18,8 +18,8 @@ public class BattleManager : MonoBehaviour
     private void Update() {
         
         //have someway of storing what the last placed hero piece was
-        //that goes into the parameters
-        //characterSwap();
+        //that goes into the parameters (has to be of type Character)
+        //characterSwap(Position.charReference);
     }
     void characterSwap(Character chara){
         actionText.SetMoveNames(chara.attacks);
