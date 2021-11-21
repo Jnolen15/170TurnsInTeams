@@ -32,6 +32,7 @@ public class PositionManager : MonoBehaviour
         {
             GameObject enemy = Instantiate(goblin, enemyPositions[i].position, enemyPositions[i].rotation);
             enemyPositions[i].GetComponent<Position>().character = enemy;
+            enemy.GetComponent<EnemyManager>().location = enemyPositions[i];
         }
 
         // Set PC to default positions

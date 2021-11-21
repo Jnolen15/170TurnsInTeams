@@ -27,6 +27,8 @@ public class Position : MonoBehaviour
         // Set charecter to this position
         character = chara;
         character.transform.position = this.transform.position;
+        // Assign character's position
+        character.GetComponent<PCManager>().location = this.transform;
     }
 
     public void unasignPosition()
@@ -67,6 +69,7 @@ public class Position : MonoBehaviour
                 pm.selectedCharacterlocation.GetComponent<Position>().unasignPosition();
                 // Asign new pos
                 asignPosition(pm.selectedCharacter);
+                // Unselect character
                 pm.selectedCharacter = null;
                 pm.selectedCharacterlocation = null;
             }
