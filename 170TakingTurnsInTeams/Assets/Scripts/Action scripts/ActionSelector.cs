@@ -27,4 +27,9 @@ public class ActionSelector : MonoBehaviour
             }
         }
     }
+
+    public void SelectAction(int idx)
+    {
+        Debug.Log(actionTexts[idx].text);
+    }
 }
