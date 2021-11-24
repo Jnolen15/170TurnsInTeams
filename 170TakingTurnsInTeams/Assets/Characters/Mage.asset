@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5d140e0deeb26f469d08e83fabd6ffc, type: 3}
-  m_Name: Attack
+  m_Script: {fileID: 11500000, guid: dbe080d61a3c3c340a3b0b2dea0cc4db, type: 3}
+  m_Name: Mage
   m_EditorClassIdentifier: 
-  nameOfAttack: Test 1
-  desc: Basic sword slash attack
-  power: 5
+  potentialMoves:
+  - attackBase: {fileID: 11400000, guid: dcc0a0aba9490c74a86dfa76d34c25c4, type: 2}

@@ -6,11 +6,21 @@ using UnityEngine;
 public class Attack : ScriptableObject  //This really should be called attack base
 {
     [SerializeField]
-    string name;
+    string nameOfAttack;
     [TextArea]
     [SerializeField]
     string desc;
 
     [SerializeField]
     int power;
+
+    public string NameOfAttack{
+        get { return nameOfAttack; }
+    }
+    public string Desc{
+        get {return desc; }
+    }
+    public int Power{
+        get { return power; }
+    }
 }

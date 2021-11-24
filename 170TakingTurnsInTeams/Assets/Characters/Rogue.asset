@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5d140e0deeb26f469d08e83fabd6ffc, type: 3}
-  m_Name: Attack
+  m_Script: {fileID: 11500000, guid: dbe080d61a3c3c340a3b0b2dea0cc4db, type: 3}
+  m_Name: Rogue
   m_EditorClassIdentifier: 
-  nameOfAttack: Test 1
-  desc: Basic sword slash attack
-  power: 5
+  potentialMoves:
+  - attackBase: {fileID: 11400000, guid: 256f3ea752bbb814eb31a17861223488, type: 2}
+  - attackBase: {fileID: 11400000, guid: 3a18c40740367864c8009b3b89fa2db4, type: 2}

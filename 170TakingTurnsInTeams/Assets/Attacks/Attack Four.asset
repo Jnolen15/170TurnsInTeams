@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbe080d61a3c3c340a3b0b2dea0cc4db, type: 3}
-  m_Name: Character
+  m_Script: {fileID: 11500000, guid: b5d140e0deeb26f469d08e83fabd6ffc, type: 3}
+  m_Name: Attack Four
   m_EditorClassIdentifier: 
-  potentialMoves:
-  - attackBase: {fileID: 11400000, guid: 8f15ec450a659f34f921a093884cc508, type: 2}
+  nameOfAttack: 4
+  desc: Closeline a fool
+  power: 30

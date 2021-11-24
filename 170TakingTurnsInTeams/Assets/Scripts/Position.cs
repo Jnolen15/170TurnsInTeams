@@ -50,10 +50,11 @@ public class Position : MonoBehaviour
             {
                 if (character.tag == "PlayerCharacter")
                 {
-                    Debug.Log("Clicked on: " + character.name);
+                    //Debug.Log("Clicked on: " + character.name);
                     pm.selectedCharacter = character;
                     charReference = character;
-                    print("CHARACTER: " + charReference.name);
+                    BattleManager.swap = true;
+                    //print("CHARACTER: " + charReference.name);
                     pm.selectedCharacterlocation = this.gameObject;
                 }
                 else if (character.tag == "Enemy")
@@ -81,8 +82,10 @@ public class Position : MonoBehaviour
             {
                 if (character.tag == "PlayerCharacter")
                 {
-                    Debug.Log("Clicked on: " + character.name);
+                    //Debug.Log("Clicked on: " + character.name);
                     pm.selectedCharacter = character;
+                    charReference = character;
+                    BattleManager.swap = true;
                     pm.selectedCharacterlocation = this.gameObject;
                 }
                 else if (character.tag == "Enemy")

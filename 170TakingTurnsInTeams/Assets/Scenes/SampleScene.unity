@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 20255093}
   - component: {fileID: 20255092}
   - component: {fileID: 20255094}
+  - component: {fileID: 20255095}
   m_Layer: 0
   m_Name: Mage
   m_TagString: PlayerCharacter
@@ -222,6 +223,19 @@ MonoBehaviour:
   classtype: 1
   location: {fileID: 0}
   adjacentEnemy: {fileID: 0}
+--- !u!114 &20255095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 20255091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 234672dfd982da8499b0adce0c866f18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _base: {fileID: 11400000, guid: b1bad47dbe631a844ac80b995b6dc12c, type: 2}
 --- !u!1 &83499105
 GameObject:
   m_ObjectHideFlags: 0
@@ -363,6 +377,52 @@ MonoBehaviour:
   - {fileID: 2014793395}
   selectedCharacter: {fileID: 0}
   selectedCharacterlocation: {fileID: 0}
+--- !u!1 &367492666
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 367492668}
+  - component: {fileID: 367492667}
+  m_Layer: 0
+  m_Name: Game managers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &367492667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 367492666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcc855d7fd13a194ab147dc0c476f27a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionText: {fileID: 785897605}
+  test: {fileID: 1023105898}
+  nameText: {fileID: 759299635}
+--- !u!4 &367492668
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 367492666}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -283.75412, y: 578.8118, z: -552.8583}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &410146894
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -504,7 +564,7 @@ MonoBehaviour:
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 200, y: 50}
+  m_CellSize: {x: 400, y: 100}
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
@@ -859,7 +919,7 @@ GameObject:
   - component: {fileID: 759299636}
   - component: {fileID: 759299635}
   m_Layer: 5
-  m_Name: Title
+  m_Name: Character Name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1138,6 +1198,7 @@ GameObject:
   - component: {fileID: 1023105896}
   - component: {fileID: 1023105895}
   - component: {fileID: 1023105897}
+  - component: {fileID: 1023105898}
   m_Layer: 0
   m_Name: Knight
   m_TagString: PlayerCharacter
@@ -1225,6 +1286,19 @@ MonoBehaviour:
   classtype: 2
   location: {fileID: 0}
   adjacentEnemy: {fileID: 0}
+--- !u!114 &1023105898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1023105894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 234672dfd982da8499b0adce0c866f18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _base: {fileID: 11400000, guid: 88a1bdd3eea59184c8e01d907100b099, type: 2}
 --- !u!1 &1057136458
 GameObject:
   m_ObjectHideFlags: 0
@@ -1497,6 +1571,7 @@ GameObject:
   - component: {fileID: 1484162017}
   - component: {fileID: 1484162016}
   - component: {fileID: 1484162018}
+  - component: {fileID: 1484162019}
   m_Layer: 0
   m_Name: Rogue
   m_TagString: PlayerCharacter
@@ -1584,6 +1659,19 @@ MonoBehaviour:
   classtype: 0
   location: {fileID: 0}
   adjacentEnemy: {fileID: 0}
+--- !u!114 &1484162019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1484162015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 234672dfd982da8499b0adce0c866f18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _base: {fileID: 11400000, guid: 38264c4285df75145b0edbdd2f0ec585, type: 2}
 --- !u!1 &1646284111
 GameObject:
   m_ObjectHideFlags: 0

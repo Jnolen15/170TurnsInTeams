@@ -6,14 +6,20 @@ public class ActionSelector : MonoBehaviour
 {
     [SerializeField]
     List<Text> actionTexts;
-
+    
+    private void Start() {
+        foreach(var val in actionTexts){
+            val.enabled = false;
+        }
+    }
     public void SetMoveNames(List<attackSelector> attacks)
     {
         for(int i = 0; i < actionTexts.Count; ++i)
         {
+            actionTexts[i].enabled = true;
             if (i < attacks.Count)
             {
-                actionTexts[i].text = attacks[i].Base.name;
+                actionTexts[i].text = attacks[i].Base.NameOfAttack;
             }
             else
             {
