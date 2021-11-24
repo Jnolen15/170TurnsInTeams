@@ -8,6 +8,8 @@ public class Character : MonoBehaviour
     [SerializeField]
     baseCharacter _base;
 
+    public bool hasAttacked = false;
+
     public baseCharacter baseChar{
         get{return _base; }
     }

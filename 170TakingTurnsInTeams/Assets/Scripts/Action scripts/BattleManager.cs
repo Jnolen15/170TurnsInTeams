@@ -13,14 +13,19 @@ public class BattleManager : MonoBehaviour
     ActionSelector actionText;
     [SerializeField]
     Character test;
-    
+    [SerializeField]
+    PositionManager posManager;
     [SerializeField]
     Text nameText;
+
     public static bool swap = false;
+    public Queue<Action> actionQueue;
+
     void Start()
     {
         test.Init();
         nameText.enabled = false;
+        actionQueue = new Queue<Action>();
     }
     private void Update() {
         
@@ -41,4 +46,17 @@ public class BattleManager : MonoBehaviour
         //print(chara.baseChar.PotentialMoves);
         actionText.SetMoveNames(chara.attacks);
     }
+
+    public void AddActionToQueue(Attack attack)
+    {
+        GameObject target = posManager.selectedCharacter.GetComponent<PCManager>().adjacentEnemy;
+        if (target == null)
+        {
+            // TO-DO: Add selection method when adjacent enemy is null
+            return;
+        }
+        actionQueue.Enqueue(new Action(posManager.selectedCharacter, target, attack));
+        posManager.selectedCharacter.GetComponent<Character>().hasAttacked = true;
+    }
+
 }

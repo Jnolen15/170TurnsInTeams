@@ -236,6 +236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _base: {fileID: 11400000, guid: b1bad47dbe631a844ac80b995b6dc12c, type: 2}
+  hasAttacked: 0
 --- !u!1 &83499105
 GameObject:
   m_ObjectHideFlags: 0
@@ -466,6 +467,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionText: {fileID: 785897605}
   test: {fileID: 1023105898}
+  posManager: {fileID: 242764894}
   nameText: {fileID: 759299635}
 --- !u!4 &367492668
 Transform:
@@ -488,7 +490,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 367492666}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0f83b9e7cae5b6940bdc7d17e1dcc97b, type: 3}
   m_Name: 
@@ -1255,6 +1257,7 @@ MonoBehaviour:
   - {fileID: 1646284113}
   - {fileID: 1057136460}
   - {fileID: 83499107}
+  battleManager: {fileID: 367492667}
 --- !u!1 &812203888
 GameObject:
   m_ObjectHideFlags: 0
@@ -1433,6 +1436,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _base: {fileID: 11400000, guid: 88a1bdd3eea59184c8e01d907100b099, type: 2}
+  hasAttacked: 0
 --- !u!1 &1057136458
 GameObject:
   m_ObjectHideFlags: 0
@@ -1863,6 +1867,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _base: {fileID: 11400000, guid: 38264c4285df75145b0edbdd2f0ec585, type: 2}
+  hasAttacked: 0
 --- !u!1 &1646284111
 GameObject:
   m_ObjectHideFlags: 0

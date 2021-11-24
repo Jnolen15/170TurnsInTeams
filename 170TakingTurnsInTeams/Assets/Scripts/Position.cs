@@ -50,6 +50,11 @@ public class Position : MonoBehaviour
             {
                 if (character.tag == "PlayerCharacter")
                 {
+                    // Characters can't move once they've already selected an attack
+                    if (character.GetComponent<Character>().hasAttacked)
+                    {
+                        return;
+                    }
                     //Debug.Log("Clicked on: " + character.name);
                     pm.selectedCharacter = character;
                     charReference = character;

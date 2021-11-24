@@ -6,6 +6,9 @@ public class ActionSelector : MonoBehaviour
 {
     [SerializeField]
     List<Text> actionTexts;
+
+    [SerializeField]
+    BattleManager battleManager;
     
     private void Start() {
         foreach(var val in actionTexts){
@@ -30,6 +33,8 @@ public class ActionSelector : MonoBehaviour
 
     public void SelectAction(int idx)
     {
-        Debug.Log(actionTexts[idx].text);
+        Attack attack = Resources.Load("Attacks/" + actionTexts[idx].text) as Attack;
+        battleManager.AddActionToQueue(attack);
+        //Debug.Log(attack);
     }
 }
