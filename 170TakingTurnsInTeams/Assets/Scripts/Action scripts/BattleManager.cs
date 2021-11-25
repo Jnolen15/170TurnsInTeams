@@ -57,6 +57,7 @@ public class BattleManager : MonoBehaviour
         }
         actionQueue.Enqueue(new Action(posManager.selectedCharacter, target, attack));
         posManager.selectedCharacter.GetComponent<Character>().hasAttacked = true;
+        Debug.Log(actionQueue);
     }
 
 }
