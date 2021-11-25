@@ -51,11 +51,7 @@ public class Position : MonoBehaviour
             {
                 if (character.tag == "PlayerCharacter")
                 {
-                    // Characters can't move once they've already selected an attack
-                    if (character.GetComponent<Character>().hasAttacked)
-                    {
-                        return;
-                    }
+                    
                     //Debug.Log("Clicked on: " + character.name);
                     pm.selectedCharacter = character;
                     pm.selectedCharacter.transform.localScale = new Vector3(scale, scale, scale);
@@ -76,6 +72,11 @@ public class Position : MonoBehaviour
         {
             if (character == null)
             {
+                // Characters can't move once they've already selected an attack
+                if (pm.selectedCharacter.GetComponent<Character>().hasAttacked)
+                {
+                    return;
+                }
                 Debug.Log("Moving " + pm.selectedCharacter.name + " to " + this.gameObject.name);
                 // Unasign old pos
                 pm.selectedCharacterlocation.GetComponent<Position>().unasignPosition();
@@ -91,6 +92,7 @@ public class Position : MonoBehaviour
                 if (character.tag == "PlayerCharacter")
                 {
                     //Debug.Log("Clicked on: " + character.name);
+                    
                     pm.selectedCharacter.transform.localScale = Vector3.one;
                     pm.selectedCharacter = character;
                     pm.selectedCharacter.transform.localScale = new Vector3(scale, scale, scale);
