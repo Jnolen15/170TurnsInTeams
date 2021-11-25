@@ -49,10 +49,23 @@ public class BattleManager : MonoBehaviour
 
     public void AddActionToQueue(Attack attack)
     {
-        GameObject target = posManager.selectedCharacter.GetComponent<PCManager>().adjacentEnemy;
+        GameObject actor = posManager.selectedCharacter;
+        if (actor == null)
+        {
+            Debug.Log("Null Actor Selection.");
+            return;
+        }
+        GameObject target = actor.GetComponent<PCManager>().adjacentEnemy;
         if (target == null)
         {
             // TO-DO: Add selection method when adjacent enemy is null
+            Debug.Log("Null Attack Target.");
+            return;
+        }
+        
+        if (attack == null)
+        {
+            Debug.Log("Null Attack Selection.");
             return;
         }
         actionQueue.Enqueue(new Action(posManager.selectedCharacter, target, attack));
