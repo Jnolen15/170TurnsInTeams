@@ -9,6 +9,7 @@ public class Position : MonoBehaviour
     public GameObject character;
     public bool occupied;
     public PositionManager pm;
+    [SerializeField] float scale = 1.25f;
 
     private void Start()
     {
@@ -57,6 +58,7 @@ public class Position : MonoBehaviour
                     }
                     //Debug.Log("Clicked on: " + character.name);
                     pm.selectedCharacter = character;
+                    pm.selectedCharacter.transform.localScale = new Vector3(scale, scale, scale);
                     charReference = character;
                     BattleManager.swap = true;
                     //print("CHARACTER: " + charReference.name);
@@ -80,6 +82,7 @@ public class Position : MonoBehaviour
                 // Asign new pos
                 asignPosition(pm.selectedCharacter);
                 // Unselect character
+                pm.selectedCharacter.transform.localScale = Vector3.one;
                 pm.selectedCharacter = null;
                 pm.selectedCharacterlocation = null;
             }
@@ -88,7 +91,9 @@ public class Position : MonoBehaviour
                 if (character.tag == "PlayerCharacter")
                 {
                     //Debug.Log("Clicked on: " + character.name);
+                    pm.selectedCharacter.transform.localScale = Vector3.one;
                     pm.selectedCharacter = character;
+                    pm.selectedCharacter.transform.localScale = new Vector3(scale, scale, scale);
                     charReference = character;
                     BattleManager.swap = true;
                     pm.selectedCharacterlocation = this.gameObject;
