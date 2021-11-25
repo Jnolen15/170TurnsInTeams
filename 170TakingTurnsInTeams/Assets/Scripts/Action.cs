@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Action : MonoBehaviour
+public class Action 
 {
     public Action(GameObject _actor, GameObject _target, Attack _attack)
     {
