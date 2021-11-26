@@ -24,6 +24,16 @@ public class PositionManager : MonoBehaviour
     public GameObject selectedCharacter;
     public GameObject selectedCharacterlocation;
 
+    public GameState state;
+
+    public enum GameState
+    {
+        charSelect,
+        moveSelect,
+        targetSelect,
+        combat,
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,7 +49,34 @@ public class PositionManager : MonoBehaviour
         defaultTop.GetComponent<Position>().asignPosition(rouge);
         defaultMiddle.GetComponent<Position>().asignPosition(mage);
         defaultBottom.GetComponent<Position>().asignPosition(knight);
+
+        state = GameState.charSelect;
     }
+
+    public void SelectChar(GameObject character)
+    {
+        if (selectedCharacter != null)
+        {
+            selectedCharacter.transform.localScale = Vector3.one;
+        }
+        selectedCharacter = character;
+        character.transform.localScale = new Vector3(1.25f, 1.25f, 1.25f);
+        state = GameState.moveSelect;
+        HighlightTargets();
+    }
+
+    public void UnselectChar(GameObject character)
+    {
+        selectedCharacter = null;
+        character.transform.localScale = Vector3.one;
+        state = GameState.charSelect;
+    }
+
+    void HighlightTargets()
+    {
+        //if (selectedCharacter.GetComponent<PCManager>().location)
+    }
+
 
     // Update is called once per frame
     void Update()
