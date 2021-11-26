@@ -95,3 +95,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cac5b111df425ed4dacde9f36e76f461, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  classtype: 0
+  positions:
+    serializedVersion: 2
+    m_Bits: 128
+  location: {fileID: 0}
+  NorthFlankCharacter: {fileID: 0}
+  EastFlankCharacter: {fileID: 0}
+  SouthFlankCharacter: {fileID: 0}
+  WestFlankCharacter: {fileID: 0}

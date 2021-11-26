@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2372377339742366147}
   m_Layer: 0
   m_Name: Position
-  m_TagString: Untagged
+  m_TagString: Position
   m_Icon: {fileID: 4162164826716764455, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,6 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 0}
   occupied: 0
+  pm: {fileID: 0}
+  scale: 1.25
 --- !u!61 &2372377339742366147
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -55,7 +55,7 @@ public class BattleManager : MonoBehaviour
             Debug.Log("Null Actor Selection.");
             return;
         }
-        GameObject target = actor.GetComponent<PCManager>().adjacentEnemy;
+        GameObject target = actor.GetComponent<PCManager>().EastFlankCharacter;
         if (target == null)
         {
             // TO-DO: Add selection method when adjacent enemy is null

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1698050773561417946}
   m_Layer: 0
   m_Name: EnemyPosition
-  m_TagString: Untagged
+  m_TagString: Position
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49,6 +49,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 0}
   occupied: 0
+  pm: {fileID: 0}
+  scale: 1.25
 --- !u!1001 &1698050773659541185
 PrefabInstance:
   m_ObjectHideFlags: 0

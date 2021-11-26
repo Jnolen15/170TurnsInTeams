@@ -15,24 +15,68 @@ public class PCManager : MonoBehaviour
 
     // Public Variables
     public Transform location;
-    public GameObject adjacentEnemy;
+    public LayerMask positions;
+    public GameObject NorthFlankCharacter;
+    public GameObject EastFlankCharacter;
+    public GameObject SouthFlankCharacter;
+    public GameObject WestFlankCharacter;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    // Private Variables
+    private GameObject NorthFlank;
+    private GameObject EastFlank;
+    private GameObject SouthFlank;
+    private GameObject WestFlank;
 
-    // Update is called once per frame
     void Update()
     {
-        if (location.parent.tag != "PositionManager")
+        Vector3 buffer = new Vector3(0, 1, 0);
+
+        RaycastHit2D hit = Physics2D.Raycast(location.transform.position + buffer, Vector2.up, 4, positions);
+        if (hit.collider != null)
         {
-            adjacentEnemy = location.parent.GetComponent<Position>().character;
+            NorthFlank = hit.collider.gameObject;
+            NorthFlankCharacter = NorthFlank.GetComponent<Position>().character;
         }
         else
         {
-            adjacentEnemy = null;
+            NorthFlankCharacter = null;
+            NorthFlank = null;
+        }
+
+        hit = Physics2D.Raycast(location.transform.position + buffer, Vector2.right, 4, positions);
+        if (hit.collider != null)
+        {
+            EastFlank = hit.collider.gameObject;
+            EastFlankCharacter = EastFlank.GetComponent<Position>().character;
+        }
+        else
+        {
+            EastFlankCharacter = null;
+            EastFlank = null;
+        }
+
+        hit = Physics2D.Raycast(location.transform.position + buffer, -Vector2.up, 4, positions);
+        if (hit.collider != null)
+        {
+            SouthFlank = hit.collider.gameObject;
+            SouthFlankCharacter = SouthFlank.GetComponent<Position>().character;
+        }
+        else
+        {
+            SouthFlankCharacter = null;
+            SouthFlank = null;
+        }
+
+        hit = Physics2D.Raycast(location.transform.position + buffer, -Vector2.right, 4, positions);
+        if (hit.collider != null)
+        {
+            WestFlank = hit.collider.gameObject;
+            WestFlankCharacter = WestFlank.GetComponent<Position>().character;
+        }
+        else
+        {
+            WestFlankCharacter = null;
+            WestFlank = null;
         }
     }
 }

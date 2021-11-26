@@ -12,6 +12,8 @@ public class EnemyManager : MonoBehaviour
     public classeTypes classtype;
 
     // Public Variables
+    public LayerMask positions;
+    
     public Transform location;
 
     public GameObject NorthFlankCharacter;
@@ -28,10 +30,23 @@ public class EnemyManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        NorthFlank = location.transform.GetChild(0).gameObject;
-        EastFlank = location.transform.GetChild(1).gameObject;
-        SouthFlank = location.transform.GetChild(2).gameObject;
-        WestFlank = location.transform.GetChild(3).gameObject;
+        Vector3 buffer = new Vector3(0, 1, 0);
+
+        RaycastHit2D hit = Physics2D.Raycast(location.transform.position + buffer, Vector2.up, 4, positions);
+        if (hit.collider != null)
+            NorthFlank = hit.collider.gameObject;
+
+        hit = Physics2D.Raycast(location.transform.position + buffer, Vector2.right, 4, positions);
+        if (hit.collider != null)
+            EastFlank = hit.collider.gameObject;
+
+        hit = Physics2D.Raycast(location.transform.position + buffer, -Vector2.up, 4, positions);
+        if (hit.collider != null)
+            SouthFlank = hit.collider.gameObject;
+
+        hit = Physics2D.Raycast(location.transform.position + buffer, -Vector2.right, 4, positions);
+        if (hit.collider != null)
+            WestFlank = hit.collider.gameObject;
     }
 
     // Update is called once per frame
