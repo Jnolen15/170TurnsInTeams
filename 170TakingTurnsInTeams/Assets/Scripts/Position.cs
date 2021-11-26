@@ -32,6 +32,7 @@ public class Position : MonoBehaviour
         character.transform.position = this.transform.position;
         // Assign character's position
         character.GetComponent<PCManager>().location = this.transform;
+        
     }
 
     public void unasignPosition()

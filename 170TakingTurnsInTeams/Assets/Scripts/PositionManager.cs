@@ -74,13 +74,37 @@ public class PositionManager : MonoBehaviour
 
     void HighlightTargets()
     {
-        //if (selectedCharacter.GetComponent<PCManager>().location)
+        if (selectedCharacter == null)
+        {
+            return;
+        }
+
+        bool isNeutral = false;
+
+        // If character is in neutral position, highlight all enemies
+        if (defaultTop.transform.position == selectedCharacter.transform.position)
+        {
+            isNeutral = true;
+        } 
+        else if (defaultMiddle.transform.position == selectedCharacter.transform.position)
+        {
+            isNeutral = true;
+        } 
+        else if (defaultBottom.transform.position == selectedCharacter.transform.position)
+        {
+            isNeutral = true;
+        }
+
+        if (isNeutral)
+        {
+            // Highlight all enemies
+        }
     }
 
 
     // Update is called once per frame
     void Update()
     {
-        
+        HighlightTargets();
     }
 }
