@@ -67,8 +67,6 @@ public class BattleManager : MonoBehaviour
             currAttack = attack;
             posManager.state = PositionManager.GameState.targetSelect;
         }
-        
-        
     }
 
     public void SetActionTarget(GameObject target)
@@ -76,7 +74,9 @@ public class BattleManager : MonoBehaviour
         actionQueue.Enqueue(new Action(currActor, target, currAttack));
         Debug.Log(currActor + " used " + currAttack + " on " + target + ", Action Queue Length: " + actionQueue.Count);
         currActor.GetComponent<Character>().hasAttacked = true;
+        currActor.GetComponent<SpriteRenderer>().color = new Color(0.5f, 0.5f, 0.5f);
         posManager.UnhighlightTargets();
+        posManager.UnselectChar();
         posManager.state = PositionManager.GameState.charSelect;
         currActor = null;
         currAttack = null;

@@ -197,6 +197,7 @@ MonoBehaviour:
   character: {fileID: 0}
   occupied: 0
   pm: {fileID: 0}
+  bm: {fileID: 0}
   scale: 1.25
 --- !u!1 &181691864
 GameObject:
@@ -271,6 +272,7 @@ MonoBehaviour:
   character: {fileID: 0}
   occupied: 0
   pm: {fileID: 0}
+  bm: {fileID: 0}
   scale: 1.25
 --- !u!1 &183923399
 GameObject:
@@ -345,6 +347,7 @@ MonoBehaviour:
   character: {fileID: 0}
   occupied: 0
   pm: {fileID: 0}
+  bm: {fileID: 0}
   scale: 1.25
 --- !u!1 &187055861
 GameObject:
@@ -763,7 +766,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 300, y: 250}
+  m_SizeDelta: {x: 200, y: 250}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &374691924
 MonoBehaviour:
@@ -785,7 +788,7 @@ MonoBehaviour:
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 200, y: 100}
+  m_CellSize: {x: 150, y: 100}
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
@@ -862,6 +865,7 @@ MonoBehaviour:
   character: {fileID: 0}
   occupied: 0
   pm: {fileID: 0}
+  bm: {fileID: 0}
   scale: 1.25
 --- !u!1 &390237467
 GameObject:
@@ -1069,6 +1073,7 @@ MonoBehaviour:
   character: {fileID: 0}
   occupied: 0
   pm: {fileID: 0}
+  bm: {fileID: 0}
   scale: 1.25
 --- !u!1 &865744009
 GameObject:
@@ -1143,6 +1148,7 @@ MonoBehaviour:
   character: {fileID: 0}
   occupied: 0
   pm: {fileID: 0}
+  bm: {fileID: 0}
   scale: 1.25
 --- !u!1 &903071601
 GameObject:
@@ -1217,6 +1223,7 @@ MonoBehaviour:
   character: {fileID: 0}
   occupied: 0
   pm: {fileID: 0}
+  bm: {fileID: 0}
   scale: 1.25
 --- !u!1 &939761275
 GameObject:
@@ -1474,6 +1481,7 @@ MonoBehaviour:
   character: {fileID: 0}
   occupied: 0
   pm: {fileID: 0}
+  bm: {fileID: 0}
   scale: 1.25
 --- !u!1001 &1045874582
 PrefabInstance:
@@ -1634,6 +1642,7 @@ MonoBehaviour:
   character: {fileID: 0}
   occupied: 0
   pm: {fileID: 0}
+  bm: {fileID: 0}
   scale: 1.25
 --- !u!1 &1149252769
 GameObject:
@@ -2279,6 +2288,7 @@ MonoBehaviour:
   character: {fileID: 0}
   occupied: 0
   pm: {fileID: 0}
+  bm: {fileID: 0}
   scale: 1.25
 --- !u!1 &1559894462
 GameObject:
@@ -2322,6 +2332,7 @@ MonoBehaviour:
   - {fileID: 1131180973}
   selectedCharacter: {fileID: 0}
   selectedCharacterlocation: {fileID: 0}
+  state: 0
 --- !u!4 &1559894464
 Transform:
   m_ObjectHideFlags: 0
@@ -2542,6 +2553,7 @@ MonoBehaviour:
   character: {fileID: 0}
   occupied: 0
   pm: {fileID: 0}
+  bm: {fileID: 0}
   scale: 1.25
 --- !u!1 &1725327938
 GameObject:

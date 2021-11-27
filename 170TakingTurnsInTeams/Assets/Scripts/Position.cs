@@ -54,15 +54,15 @@ public class Position : MonoBehaviour
             {
                 if (character.tag == "PlayerCharacter")
                 {
-
                     //Debug.Log("Clicked on: " + character.name);
-                    pm.SelectChar(character);
-                    //pm.selectedCharacter = character;
-                    //pm.selectedCharacter.transform.localScale = new Vector3(scale, scale, scale);
-                    charReference = character;
-                    BattleManager.swap = true;
-                    //print("CHARACTER: " + charReference.name);
-                    pm.selectedCharacterlocation = this.gameObject;
+                    if (!character.GetComponent<Character>().hasAttacked)
+                    {
+                        pm.SelectChar(character);
+                        charReference = character;
+                        BattleManager.swap = true;
+                        //print("CHARACTER: " + charReference.name);
+                        pm.selectedCharacterlocation = this.gameObject;
+                    }
                 }
                 else if (character.tag == "Enemy")
                 {
@@ -86,6 +86,7 @@ public class Position : MonoBehaviour
                 if (pm.state == PositionManager.GameState.targetSelect)
                 {
                     pm.UnhighlightTargets();
+                    pm.UnselectChar();
                     pm.state = PositionManager.GameState.charSelect;
                     return;
                 }
@@ -110,19 +111,23 @@ public class Position : MonoBehaviour
                         pm.state = PositionManager.GameState.charSelect;
                         return;
                     }
-                    pm.SelectChar(character);
-                    //pm.selectedCharacter.transform.localScale = Vector3.one;
-                    //pm.selectedCharacter = character;
-                    //pm.selectedCharacter.transform.localScale = new Vector3(scale, scale, scale);
-                    charReference = character;
-                    BattleManager.swap = true;
-                    pm.selectedCharacterlocation = this.gameObject;
+                    if (!character.GetComponent<Character>().hasAttacked)
+                    {
+                        pm.SelectChar(character);
+                        charReference = character;
+                        BattleManager.swap = true;
+                        pm.selectedCharacterlocation = this.gameObject;
+                    }
                 }
                 else if (character.tag == "Enemy")
                 {
                     if (pm.state == PositionManager.GameState.targetSelect)
                     {
-                        bm.SetActionTarget(character);
+                        // Lazy way of checking for valid target
+                        if (character.GetComponent<SpriteRenderer>().color != Color.white)
+                        {
+                            bm.SetActionTarget(character);
+                        }
                     } else
                     {
                         Debug.Log("Cannot move to an enemy occupied space!");

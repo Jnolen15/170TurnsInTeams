@@ -33,6 +33,7 @@ public class ActionSelector : MonoBehaviour
 
     public void SelectAction(int idx)
     {
+        if (battleManager.posManager.state != PositionManager.GameState.moveSelect) return;
         Attack attack = Resources.Load("Attacks/" + actionTexts[idx].text) as Attack;
         battleManager.AddActionToQueue(attack);
         battleManager.posManager.HighlightTargets();

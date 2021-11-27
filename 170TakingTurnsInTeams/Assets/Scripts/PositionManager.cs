@@ -64,10 +64,13 @@ public class PositionManager : MonoBehaviour
         state = GameState.moveSelect;
     }
 
-    public void UnselectChar(GameObject character)
+    public void UnselectChar()
     {
-        selectedCharacter = null;
-        character.transform.localScale = Vector3.one;
+        if (selectedCharacter != null)
+        {
+            selectedCharacter.transform.localScale = Vector3.one;
+            selectedCharacter = null;
+        }
         state = GameState.charSelect;
     }
 
@@ -106,6 +109,38 @@ public class PositionManager : MonoBehaviour
                 }
             }
         }
+        else
+        {
+            GameObject target;
+
+            // Check for valid North target
+            target = selectedCharacter.GetComponent<PCManager>().NorthFlankCharacter;
+            if (target != null)
+            {
+                target.GetComponent<SpriteRenderer>().color = new Color(0.6f, 1f, 0.6f);
+            }
+                
+            // Check for valid East target
+            target = selectedCharacter.GetComponent<PCManager>().EastFlankCharacter;
+            if (target != null)
+            {
+                target.GetComponent<SpriteRenderer>().color = new Color(0.6f, 1f, 0.6f);
+            }
+
+            // Check for valid South target
+            target = selectedCharacter.GetComponent<PCManager>().SouthFlankCharacter;
+            if (target != null)
+            {
+                target.GetComponent<SpriteRenderer>().color = new Color(0.6f, 1f, 0.6f);
+            }
+                
+            // Check for valid West target
+            target = selectedCharacter.GetComponent<PCManager>().WestFlankCharacter;
+            if (target != null)
+            {
+                target.GetComponent<SpriteRenderer>().color = new Color(0.6f, 1f, 0.6f);
+            }
+        }
     }
 
     public void UnhighlightTargets()
@@ -118,6 +153,23 @@ public class PositionManager : MonoBehaviour
             }
         }
         
+    }
+
+    public void ResetTurn()
+    {
+        if (rouge.activeInHierarchy)
+        {
+            rouge.GetComponent<SpriteRenderer>().color = Color.white;
+        }
+        if (mage.activeInHierarchy)
+        {
+            mage.GetComponent<SpriteRenderer>().color = Color.white;
+        }
+        if (knight.activeInHierarchy)
+        {
+            knight.GetComponent<SpriteRenderer>().color = Color.white;
+        }
+        state = GameState.charSelect;
     }
 
 
