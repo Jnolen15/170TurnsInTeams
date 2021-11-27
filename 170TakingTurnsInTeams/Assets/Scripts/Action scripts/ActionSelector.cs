@@ -35,6 +35,7 @@ public class ActionSelector : MonoBehaviour
     {
         Attack attack = Resources.Load("Attacks/" + actionTexts[idx].text) as Attack;
         battleManager.AddActionToQueue(attack);
+        battleManager.posManager.HighlightTargets();
         //Debug.Log(attack);
     }
 }

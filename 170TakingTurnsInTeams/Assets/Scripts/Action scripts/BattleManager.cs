@@ -13,13 +13,14 @@ public class BattleManager : MonoBehaviour
     ActionSelector actionText;
     [SerializeField]
     Character test;
-    [SerializeField]
-    PositionManager posManager;
+    public PositionManager posManager;
     [SerializeField]
     Text nameText;
 
     public static bool swap = false;
     public Queue<Action> actionQueue;
+    Attack currAttack;
+    GameObject currActor;
 
     void Start()
     {
@@ -49,17 +50,10 @@ public class BattleManager : MonoBehaviour
 
     public void AddActionToQueue(Attack attack)
     {
-        GameObject actor = posManager.selectedCharacter;
-        if (actor == null)
+        currActor = posManager.selectedCharacter;
+        if (currActor == null)
         {
             Debug.Log("Null Actor Selection.");
-            return;
-        }
-        GameObject target = actor.GetComponent<PCManager>().EastFlankCharacter;
-        if (target == null)
-        {
-            // TO-DO: Add selection method when adjacent enemy is null
-            Debug.Log("Null Attack Target.");
             return;
         }
         
@@ -67,10 +61,25 @@ public class BattleManager : MonoBehaviour
         {
             Debug.Log("Null Attack Selection.");
             return;
+        } 
+        else
+        {
+            currAttack = attack;
+            posManager.state = PositionManager.GameState.targetSelect;
         }
-        actionQueue.Enqueue(new Action(posManager.selectedCharacter, target, attack));
-        posManager.selectedCharacter.GetComponent<Character>().hasAttacked = true;
-        Debug.Log(actionQueue.Count);
+        
+        
+    }
+
+    public void SetActionTarget(GameObject target)
+    {
+        actionQueue.Enqueue(new Action(currActor, target, currAttack));
+        Debug.Log(currActor + " used " + currAttack + " on " + target + ", Action Queue Length: " + actionQueue.Count);
+        currActor.GetComponent<Character>().hasAttacked = true;
+        posManager.UnhighlightTargets();
+        posManager.state = PositionManager.GameState.charSelect;
+        currActor = null;
+        currAttack = null;
     }
 
 }

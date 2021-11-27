@@ -9,11 +9,13 @@ public class Position : MonoBehaviour
     public GameObject character;
     public bool occupied;
     public PositionManager pm;
+    public BattleManager bm;
     [SerializeField] float scale = 1.25f;
 
     private void Start()
     {
         pm = GameObject.FindGameObjectWithTag("PositionManager").GetComponent<PositionManager>();
+        bm = FindObjectOfType<BattleManager>();
     }
 
     void Update()
@@ -52,10 +54,11 @@ public class Position : MonoBehaviour
             {
                 if (character.tag == "PlayerCharacter")
                 {
-                    
+
                     //Debug.Log("Clicked on: " + character.name);
-                    pm.selectedCharacter = character;
-                    pm.selectedCharacter.transform.localScale = new Vector3(scale, scale, scale);
+                    pm.SelectChar(character);
+                    //pm.selectedCharacter = character;
+                    //pm.selectedCharacter.transform.localScale = new Vector3(scale, scale, scale);
                     charReference = character;
                     BattleManager.swap = true;
                     //print("CHARACTER: " + charReference.name);
@@ -78,6 +81,14 @@ public class Position : MonoBehaviour
                 {
                     return;
                 }
+                
+                // Check if empty space is clicked during attack target selection
+                if (pm.state == PositionManager.GameState.targetSelect)
+                {
+                    pm.UnhighlightTargets();
+                    pm.state = PositionManager.GameState.charSelect;
+                    return;
+                }
                 Debug.Log("Moving " + pm.selectedCharacter.name + " to " + this.gameObject.name);
                 // Unasign old pos
                 pm.selectedCharacterlocation.GetComponent<Position>().unasignPosition();
@@ -93,17 +104,29 @@ public class Position : MonoBehaviour
                 if (character.tag == "PlayerCharacter")
                 {
                     //Debug.Log("Clicked on: " + character.name);
-                    
-                    pm.selectedCharacter.transform.localScale = Vector3.one;
-                    pm.selectedCharacter = character;
-                    pm.selectedCharacter.transform.localScale = new Vector3(scale, scale, scale);
+                    if (pm.state == PositionManager.GameState.targetSelect)
+                    {
+                        pm.UnhighlightTargets();
+                        pm.state = PositionManager.GameState.charSelect;
+                        return;
+                    }
+                    pm.SelectChar(character);
+                    //pm.selectedCharacter.transform.localScale = Vector3.one;
+                    //pm.selectedCharacter = character;
+                    //pm.selectedCharacter.transform.localScale = new Vector3(scale, scale, scale);
                     charReference = character;
                     BattleManager.swap = true;
                     pm.selectedCharacterlocation = this.gameObject;
                 }
                 else if (character.tag == "Enemy")
                 {
-                    Debug.Log("Cannot move to an enemy occupied space!");
+                    if (pm.state == PositionManager.GameState.targetSelect)
+                    {
+                        bm.SetActionTarget(character);
+                    } else
+                    {
+                        Debug.Log("Cannot move to an enemy occupied space!");
+                    }
                 }
             }
         }

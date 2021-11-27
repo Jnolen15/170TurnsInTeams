@@ -62,7 +62,6 @@ public class PositionManager : MonoBehaviour
         selectedCharacter = character;
         character.transform.localScale = new Vector3(1.25f, 1.25f, 1.25f);
         state = GameState.moveSelect;
-        HighlightTargets();
     }
 
     public void UnselectChar(GameObject character)
@@ -72,8 +71,9 @@ public class PositionManager : MonoBehaviour
         state = GameState.charSelect;
     }
 
-    void HighlightTargets()
+    public void HighlightTargets()
     {
+        if (state != GameState.targetSelect) return;
         if (selectedCharacter == null)
         {
             return;
@@ -98,13 +98,32 @@ public class PositionManager : MonoBehaviour
         if (isNeutral)
         {
             // Highlight all enemies
+            foreach (var enemyPos in enemyPositions)
+            {
+                if (enemyPos.GetComponent<Position>().character != null)
+                {
+                    enemyPos.GetComponent<Position>().character.gameObject.GetComponent<SpriteRenderer>().color = new Color(0.6f, 1f, 0.6f);
+                }
+            }
         }
+    }
+
+    public void UnhighlightTargets()
+    {
+        foreach (var enemyPos in enemyPositions)
+        {
+            if (enemyPos.GetComponent<Position>().character != null)
+            {
+                enemyPos.GetComponent<Position>().character.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+            }
+        }
+        
     }
 
 
     // Update is called once per frame
     void Update()
     {
-        HighlightTargets();
+        //HighlightTargets();
     }
 }
