@@ -10,8 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b5d140e0deeb26f469d08e83fabd6ffc, type: 3}
-  m_Name: Rogue One
+  m_Name: BackStab
   m_EditorClassIdentifier: 
-  nameOfAttack: Rogue One
+  nameOfAttack: BackStab
   desc: firsrt rogue attack
   power: 5
+  manaPoints: 0
+  cardinalDamageMultiplier: []
