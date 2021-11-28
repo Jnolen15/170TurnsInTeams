@@ -958,18 +958,21 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 737241788}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0f83b9e7cae5b6940bdc7d17e1dcc97b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealth: 150
   max_health: 150
-  damage: 0
+  healthdamage: 0
   heal: 0
   healing: 0
   takingDamage: 0
   reachMaxHealth: 0
+  damage: {fileID: 0}
+  listOfPlayers: []
+  listOfEnemies: []
 --- !u!114 &737241790
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -986,6 +989,9 @@ MonoBehaviour:
   test: {fileID: 1563390894}
   posManager: {fileID: 1559894463}
   nameText: {fileID: 2120241735}
+  damageNum: 0
+  attackHappend: 0
+  currActor: {fileID: 0}
 --- !u!4 &737241791
 Transform:
   m_ObjectHideFlags: 0
