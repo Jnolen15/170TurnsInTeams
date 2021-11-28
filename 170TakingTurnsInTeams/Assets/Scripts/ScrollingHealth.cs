@@ -70,7 +70,6 @@ public class ScrollingHealth : MonoBehaviour
     public void enemiesGettingDamage(GameObject target, int damage)
     {
         targetToAttack = target;
-        damageAmount = damage;
 
         healthdamage = damage;
 
