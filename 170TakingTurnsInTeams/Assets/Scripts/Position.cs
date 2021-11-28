@@ -6,6 +6,7 @@ public class Position : MonoBehaviour
 {
     //will change from static later, just want to test this
     public static GameObject charReference;
+    public static GameObject enemyRef;
     public GameObject character;
     public bool occupied;
     public PositionManager pm;
@@ -104,7 +105,7 @@ public class Position : MonoBehaviour
             {
                 if (character.tag == "PlayerCharacter")
                 {
-                    //Debug.Log("Clicked on: " + character.name);
+                    Debug.Log("Clicked on: " + character.name);
                     if (pm.state == PositionManager.GameState.targetSelect)
                     {
                         pm.UnhighlightTargets();

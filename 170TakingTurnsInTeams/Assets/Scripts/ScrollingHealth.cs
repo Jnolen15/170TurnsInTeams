@@ -17,6 +17,7 @@ public class ScrollingHealth : MonoBehaviour
     public GameObject[] listOfPlayers;
     public GameObject[] listOfEnemies;
     GameObject newCurrentCharacter;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,24 +32,30 @@ public class ScrollingHealth : MonoBehaviour
         listOfEnemies = GameObject.FindGameObjectsWithTag("Enemy");
         BattleManager currentCharacter = GetComponent<BattleManager>();
         
-        
+        /*
+        int i = 0;
+        foreach(var e in listOfEnemies){
+            print("I: " + i + " " + e.transform.position.y);
+            i++;
+        }
+        */
 
         //healthdamage = currentCharacter.damageNum;
         if (currentCharacter.currActor != null)
         {
-            Debug.Log("Health Damage = " + currentCharacter.currActor);
+            //Debug.Log("Health Damage = " + currentCharacter.currActor);
             newCurrentCharacter = currentCharacter.currActor;
 
 
         }
-        Debug.Log("Current Character" + newCurrentCharacter);
+        //Debug.Log("Current Character" + newCurrentCharacter);
         if (newCurrentCharacter != null)
         {
             if (newCurrentCharacter.GetComponent<Character>().hasAttacked && !attackHasHappen)
             {
                 //damage = Random.Range(10, 50);
                 healthdamage = currentCharacter.damageNum;
-                Debug.Log("Damage: " + healthdamage);
+                //Debug.Log("Damage: " + healthdamage);
                 healing = false;
                 attackHasHappen = true;
                 StartCoroutine(healthScrollingDown());
@@ -60,17 +67,18 @@ public class ScrollingHealth : MonoBehaviour
 
 
         }
-        enemiesGettingDamage(listOfEnemies);
+        //enemiesGettingDamage(listOfEnemies);
 
     }
+    /*
     public void enemiesGettingDamage(GameObject[] enemies)
     {
-        Debug.Log("are we entering the functrion");
+        //Debug.Log("are we entering the functrion");
         GameObject tempEnemy = null;
         foreach(GameObject enemy in enemies)
         {
             enemy.GetComponent<EnemyHealth>().health = enemyHealth;
-            Debug.Log("Health: " + enemy.GetComponent<EnemyHealth>().health);
+            //Debug.Log("Health: " + enemy.GetComponent<EnemyHealth>().health);
             if(enemy.GetComponent<EnemyHealth>().health <= 0)
             {
                 
@@ -78,6 +86,18 @@ public class ScrollingHealth : MonoBehaviour
 
         }
         
+    }
+    */
+    public void enemiesGettingDamage(GameObject target)
+    {
+        print(target.transform.position.y);
+        //Debug.Log("are we entering the functrion");
+        target.GetComponent<EnemyHealth>().health = enemyHealth;
+            //Debug.Log("Health: " + enemy.GetComponent<EnemyHealth>().health);
+        if(target.GetComponent<EnemyHealth>().health <= 0)
+        {
+            Destroy(target);
+        }
     }
     IEnumerator healthScrollingDown()
     {
