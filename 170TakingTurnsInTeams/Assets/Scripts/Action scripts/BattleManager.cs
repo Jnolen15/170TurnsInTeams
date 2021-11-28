@@ -18,9 +18,11 @@ public class BattleManager : MonoBehaviour
     Text nameText;
 
     public static bool swap = false;
+    public int damageNum;
+    public bool attackHappend = false;
     public Queue<Action> actionQueue;
     Attack currAttack;
-    GameObject currActor;
+    public GameObject currActor;
 
     void Start()
     {
@@ -32,6 +34,7 @@ public class BattleManager : MonoBehaviour
         
         //have someway of storing what the last placed hero piece was
         //that goes into the parameters (has to be of type Character)
+        
         if(Position.charReference != null && swap){
             test = Position.charReference.GetComponent<Character>();   
             test.Init();
@@ -73,6 +76,8 @@ public class BattleManager : MonoBehaviour
     {
         actionQueue.Enqueue(new Action(currActor, target, currAttack));
         Debug.Log(currActor + " used " + currAttack + " on " + target + ", Action Queue Length: " + actionQueue.Count);
+        damageNum = currAttack.Power;
+        //Debug.Log(currAttack.Power);
         currActor.GetComponent<Character>().hasAttacked = true;
         currActor.GetComponent<SpriteRenderer>().color = new Color(0.5f, 0.5f, 0.5f);
         posManager.UnhighlightTargets();
