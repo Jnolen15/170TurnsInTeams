@@ -49,24 +49,6 @@ public class ScrollingHealth : MonoBehaviour
             enemyHealth = 10;
         }
     }
-    /*
-    public void enemiesGettingDamage(GameObject[] enemies)
-    {
-        //Debug.Log("are we entering the functrion");
-        GameObject tempEnemy = null;
-        foreach(GameObject enemy in enemies)
-        {
-            enemy.GetComponent<EnemyHealth>().health = enemyHealth;
-            //Debug.Log("Health: " + enemy.GetComponent<EnemyHealth>().health);
-            if(enemy.GetComponent<EnemyHealth>().health <= 0)
-            {
-                
-            }
-
-        }
-        
-    }
-    */
     public void enemiesGettingDamage(GameObject target, int damage)
     {
         targetToAttack = target;
@@ -88,7 +70,6 @@ public class ScrollingHealth : MonoBehaviour
                 yield return new WaitForSeconds(0.7f);
                 
                 enemyHealth -= 1;
-                //Debug.Log(enemyHealth);
                 if (healing || heal > healthdamage)
                 {
                     healthdamage = 0;
