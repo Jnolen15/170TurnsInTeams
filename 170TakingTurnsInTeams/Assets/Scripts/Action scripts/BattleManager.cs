@@ -78,7 +78,7 @@ public class BattleManager : MonoBehaviour
         Debug.Log(currActor + " used " + currAttack + " on " + target + ", Action Queue Length: " + actionQueue.Count);
         damageNum = currAttack.Power;
         //Debug.Log(currAttack.Power);
-        this.gameObject.GetComponent<ScrollingHealth>().enemiesGettingDamage(target);
+        this.gameObject.GetComponent<ScrollingHealth>().enemiesGettingDamage(target, damageNum);
         currActor.GetComponent<Character>().hasAttacked = true;
         currActor.GetComponent<SpriteRenderer>().color = new Color(0.5f, 0.5f, 0.5f);
         posManager.UnhighlightTargets();

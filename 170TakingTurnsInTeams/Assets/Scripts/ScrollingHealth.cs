@@ -5,7 +5,7 @@ using UnityEngine;
 public class ScrollingHealth : MonoBehaviour
 {
     public int playerHealth = 150;
-    public int enemyHealth = 10;
+    private int enemyHealth = 10;
     public int max_health = 150;
     public int healthdamage;
     public int heal;
@@ -29,44 +29,8 @@ public class ScrollingHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        listOfEnemies = GameObject.FindGameObjectsWithTag("Enemy");
-        BattleManager currentCharacter = GetComponent<BattleManager>();
+        //listOfEnemies = GameObject.FindGameObjectsWithTag("Enemy");
         
-        /*
-        int i = 0;
-        foreach(var e in listOfEnemies){
-            print("I: " + i + " " + e.transform.position.y);
-            i++;
-        }
-        */
-
-        //healthdamage = currentCharacter.damageNum;
-        if (currentCharacter.currActor != null)
-        {
-            //Debug.Log("Health Damage = " + currentCharacter.currActor);
-            newCurrentCharacter = currentCharacter.currActor;
-
-
-        }
-        //Debug.Log("Current Character" + newCurrentCharacter);
-        if (newCurrentCharacter != null)
-        {
-            if (newCurrentCharacter.GetComponent<Character>().hasAttacked && !attackHasHappen)
-            {
-                //damage = Random.Range(10, 50);
-                healthdamage = currentCharacter.damageNum;
-                //Debug.Log("Damage: " + healthdamage);
-                healing = false;
-                attackHasHappen = true;
-                StartCoroutine(healthScrollingDown());
-            }
-            if (!newCurrentCharacter.GetComponent<Character>().hasAttacked)
-            {
-                attackHasHappen = false;
-            }
-
-
-        }
         //enemiesGettingDamage(listOfEnemies);
 
     }
@@ -88,27 +52,47 @@ public class ScrollingHealth : MonoBehaviour
         
     }
     */
-    public void enemiesGettingDamage(GameObject target)
+    public void enemiesGettingDamage(GameObject target, int damage)
     {
         print(target.transform.position.y);
+        BattleManager currentCharacter = GetComponent<BattleManager>();
+
+        
+            
+                //damage = Random.Range(10, 50);
+        healthdamage = damage;
+        Debug.Log("healthDamage = " + healthdamage);
+        healing = false;
+        attackHasHappen = true;
+        StartCoroutine(healthScrollingDown());
+            
+            
+
+
+        //}
+        Debug.Log("EnemyHealth = " + enemyHealth);
         //Debug.Log("are we entering the functrion");
         target.GetComponent<EnemyHealth>().health = enemyHealth;
-            //Debug.Log("Health: " + enemy.GetComponent<EnemyHealth>().health);
+        Debug.Log("Health: " + target.GetComponent<EnemyHealth>().health);
         if(target.GetComponent<EnemyHealth>().health <= 0)
         {
             Destroy(target);
         }
     }
-    IEnumerator healthScrollingDown()
+    public IEnumerator healthScrollingDown()
     {
+        
         if (enemyHealth > 0)
         {
+            
             int i = 0;
             while(i < healthdamage && !healing)
             {
                 
                 yield return new WaitForSeconds(0.7f);
+                
                 enemyHealth -= 1;
+                Debug.Log(enemyHealth);
                 if (healing || heal > healthdamage)
                 {
                     healthdamage = 0;

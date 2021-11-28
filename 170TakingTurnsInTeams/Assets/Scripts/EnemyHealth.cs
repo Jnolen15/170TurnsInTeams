@@ -17,7 +17,7 @@ public class EnemyHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.health = damage.enemyHealth;
+        //this.health = damage.enemyHealth;
         Debug.Log("Enemy = " + gameObject + " Health = " + this.health);
         if(this.health <= 0)
         {
