@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ScrollingHealth : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class ScrollingHealth : MonoBehaviour
     public GameObject[] listOfPlayers;
     public GameObject[] listOfEnemies;
     GameObject newCurrentCharacter;
+    GameObject targetText;
 
     private GameObject targetToAttack;
     private int damageAmount;
@@ -31,22 +33,20 @@ public class ScrollingHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //listOfEnemies = GameObject.FindGameObjectsWithTag("Enemy");
-        
-        //enemiesGettingDamage(listOfEnemies);
-        if(targetToAttack != null){
-            targetToAttack.GetComponent<EnemyHealth>().health = enemyHealth;
-            print(targetToAttack.GetComponent<EnemyHealth>().health);
-            //print(enemyHealth);
+
+        //Once we find the target enemy change their health text to go with their scrolling health
+        if (targetToAttack != null)
+        {
             
-            if(targetToAttack.GetComponent<EnemyHealth>().health <= 0)
+            targetText = targetToAttack.transform.Find("Canvas").gameObject;
+            targetText.transform.Find("Text (TMP)").GetComponent<TextMeshProUGUI>().text = "HP: " + targetToAttack.GetComponent<EnemyHealth>().health.ToString();
+            print(targetToAttack.GetComponent<EnemyHealth>().health);
+            
+
+            if (targetToAttack.GetComponent<EnemyHealth>().health <= 0)
             {
                 Destroy(targetToAttack);
             }
-        }
-        else
-        {
-            enemyHealth = 10;
         }
     }
     public void enemiesGettingDamage(GameObject target, int damage)
@@ -59,24 +59,25 @@ public class ScrollingHealth : MonoBehaviour
     }
     public IEnumerator healthScrollingDown()
     {
-        
+
         if (enemyHealth > 0)
         {
-            
+
             int i = 0;
-            while(i < healthdamage && !healing)
+            while (i < healthdamage && !healing)
             {
-                
+
                 yield return new WaitForSeconds(0.7f);
-                
-                enemyHealth -= 1;
+
+                targetToAttack.GetComponent<EnemyHealth>().health -= 1;
+                //Debug.Log(enemyHealth);
                 if (healing || heal > healthdamage)
                 {
                     healthdamage = 0;
                     break;
                 }
                 i++;
-                
+
             }
             healthdamage = 0;
         }
@@ -87,7 +88,7 @@ public class ScrollingHealth : MonoBehaviour
         if (playerHealth > 0)
         {
             int i = 0;
-            while(i < heal && playerHealth < max_health)
+            while (i < heal && playerHealth < max_health)
             {
                 yield return new WaitForSeconds(0.7f);
                 playerHealth += 1;
