@@ -44,6 +44,10 @@ public class ScrollingHealth : MonoBehaviour
                 Destroy(targetToAttack);
             }
         }
+        else
+        {
+            enemyHealth = 10;
+        }
     }
     /*
     public void enemiesGettingDamage(GameObject[] enemies)
@@ -85,7 +89,7 @@ public class ScrollingHealth : MonoBehaviour
                 yield return new WaitForSeconds(0.7f);
                 
                 enemyHealth -= 1;
-                Debug.Log(enemyHealth);
+                //Debug.Log(enemyHealth);
                 if (healing || heal > healthdamage)
                 {
                     healthdamage = 0;
