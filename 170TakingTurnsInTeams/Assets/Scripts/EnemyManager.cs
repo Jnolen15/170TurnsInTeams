@@ -57,4 +57,92 @@ public class EnemyManager : MonoBehaviour
         SouthFlankCharacter = SouthFlank.GetComponent<Position>().character;
         WestFlankCharacter = WestFlank.GetComponent<Position>().character;
     }
+
+    //this is called in the battlemanager script
+    //  There definitly is a better way to organize this, but I wanted to get something
+    //  running quickly, may be worth going back later and cleaning up
+    public void Attack(GameObject target){
+        //Unity docs says its inclusive, but it doesn't seem like it is
+        //   if this causes errors, just change 4 to 3
+        int rando = Random.Range(0,4);  
+        //split up based on position so that the enemy has access to different moves based
+        //  on where the player is
+        if(NorthFlankCharacter == target){
+            //the player that just attacked the enemy is in the north position (above enemy)
+            print("NORTH");
+            
+            switch(rando){
+                case 3:
+                    print("first move");
+                    break;
+                case 2:
+                    print("second move");
+                    break;
+                case 1:
+                    print("third move");
+                    break;
+                case 0:
+                    print("fourth move");
+                    break;  
+            }
+        }
+        if(SouthFlankCharacter == target){
+            //the player that just attacked the enemy is in the south position (below enemy)
+            print("SOUTH");
+
+            switch(rando){
+                case 3:
+                    print("first move");
+                    break;
+                case 2:
+                    print("second move");
+                    break;
+                case 1:
+                    print("third move");
+                    break;
+                case 0:
+                    print("fourth move");
+                    break;  
+            }
+        }
+        if(EastFlankCharacter == target){
+            //the player that just attacked the enemy is in the east position (right of enemy)
+            print("EAST");
+
+            switch(rando){
+                case 3:
+                    print("first move");
+                    break;
+                case 2:
+                    print("second move");
+                    break;
+                case 1:
+                    print("third move");
+                    break;
+                case 0:
+                    print("fourth move");
+                    break;  
+            }
+        }
+        if(WestFlankCharacter == target){
+            //the player that just attacked the enemy is in the west position (left of enemy)
+            print("WEST");
+
+            switch(rando){
+                case 3:
+                    print("first move");
+                    break;
+                case 2:
+                    print("second move");
+                    break;
+                case 1:
+                    print("third move");
+                    break;
+                case 0:
+                    print("fourth move");
+                    break;  
+            }
+        }
+    }
+    
 }

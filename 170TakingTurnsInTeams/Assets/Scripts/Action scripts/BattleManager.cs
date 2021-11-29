@@ -84,6 +84,10 @@ public class BattleManager : MonoBehaviour
         posManager.UnhighlightTargets();
         posManager.UnselectChar();
         posManager.state = PositionManager.GameState.charSelect;
+
+        //calls function to make enemy attack the player character that just attacked them
+        target.GetComponent<EnemyManager>().Attack(currActor);
+
         currActor = null;
         currAttack = null;
     }

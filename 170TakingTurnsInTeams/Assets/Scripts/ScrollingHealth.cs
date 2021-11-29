@@ -40,7 +40,7 @@ public class ScrollingHealth : MonoBehaviour
             
             targetText = targetToAttack.transform.Find("Canvas").gameObject;
             targetText.transform.Find("Text (TMP)").GetComponent<TextMeshProUGUI>().text = "HP: " + targetToAttack.GetComponent<EnemyHealth>().health.ToString();
-            print(targetToAttack.GetComponent<EnemyHealth>().health);
+            //print(targetToAttack.GetComponent<EnemyHealth>().health);
             
 
             if (targetToAttack.GetComponent<EnemyHealth>().health <= 0)
