@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Knight
   m_EditorClassIdentifier: 
   potentialMoves:
-  - attackBase: {fileID: 11400000, guid: 8f15ec450a659f34f921a093884cc508, type: 2}
-  - attackBase: {fileID: 11400000, guid: e4f44444ea8ac2c4d92fa8795b5ab022, type: 2}
-  - attackBase: {fileID: 11400000, guid: 0bb5ea4dd5f599943aead9076212aad8, type: 2}
-  - attackBase: {fileID: 11400000, guid: af435db1a3824a64d8c822766d0ef0d1, type: 2}
+  - attackBase: {fileID: 11400000, guid: 390c7287f07d1344aa677cf7245bcab2, type: 2}
+  - attackBase: {fileID: 11400000, guid: 82481ff8161eb2d46b79283a90a91ce9, type: 2}
+  - attackBase: {fileID: 11400000, guid: 97a4c235078baee4fbfe2e250a871aa2, type: 2}
+  - attackBase: {fileID: 11400000, guid: 99929343bb98b204ca3a537c4881ca84, type: 2}
+  - attackBase: {fileID: 11400000, guid: 8cd195ef8b4a6f344823281787b548a9, type: 2}

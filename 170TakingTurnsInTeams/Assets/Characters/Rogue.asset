@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: Rogue
   m_EditorClassIdentifier: 
   potentialMoves:
-  - attackBase: {fileID: 11400000, guid: 256f3ea752bbb814eb31a17861223488, type: 2}
-  - attackBase: {fileID: 11400000, guid: 3a18c40740367864c8009b3b89fa2db4, type: 2}
+  - attackBase: {fileID: 11400000, guid: 2453101125acfb84099f6e0e7701a3ef, type: 2}
+  - attackBase: {fileID: 11400000, guid: 54595006a6a6f944daec2b1254ba4117, type: 2}
+  - attackBase: {fileID: 11400000, guid: 47b289ee4d21d1344abeaa5fbdf61220, type: 2}
+  - attackBase: {fileID: 11400000, guid: c1dd5d77f4c222a418fe72786f800da6, type: 2}
