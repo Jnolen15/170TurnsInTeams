@@ -8,26 +8,23 @@ public class ScrollingHealth : MonoBehaviour
     public int playerHealth = 150;
     private int enemyHealth = 10;
     public int max_health = 150;
-    public int healthdamage;
+    public int healthdamage = 0;
+    public int playerHealthdamage = 0;
     public int heal;
     public bool healing = false;
     public bool takingDamage = false;
     public bool reachMaxHealth = false;
     public BattleManager damage;
-    private bool attackHasHappen = false;
-    public GameObject[] listOfPlayers;
-    public GameObject[] listOfEnemies;
-    GameObject newCurrentCharacter;
+    
     GameObject targetText;
 
     private GameObject targetToAttack;
+    private GameObject playerToAttack;
     private int damageAmount;
     // Start is called before the first frame update
     void Start()
     {
-        //damage = GetComponent<BattleManager>();
-        listOfPlayers = GameObject.FindGameObjectsWithTag("PlayerCharacter");
-        listOfEnemies = GameObject.FindGameObjectsWithTag("Enemy");
+        
     }
 
     // Update is called once per frame
@@ -48,6 +45,17 @@ public class ScrollingHealth : MonoBehaviour
                 Destroy(targetToAttack);
             }
         }
+        if (playerToAttack != null)
+        {
+
+            print("Player health" + playerHealth);
+
+
+            if (playerHealth <= 0)
+            {
+                Destroy(targetToAttack);
+            }
+        }
     }
     public void enemiesGettingDamage(GameObject target, int damage)
     {
@@ -56,6 +64,15 @@ public class ScrollingHealth : MonoBehaviour
         healthdamage = damage;
 
         StartCoroutine(healthScrollingDown());
+    }
+
+    public void playersGettingDamage(GameObject target, int damage)
+    {
+        playerToAttack = target;
+
+        playerHealthdamage = damage;
+
+        StartCoroutine(playerHealthScrollingDown());
     }
     public IEnumerator healthScrollingDown()
     {
@@ -80,6 +97,32 @@ public class ScrollingHealth : MonoBehaviour
 
             }
             healthdamage = 0;
+        }
+    }
+
+    public IEnumerator playerHealthScrollingDown()
+    {
+
+        if (playerHealth > 0)
+        {
+
+            int i = 0;
+            while (i < playerHealthdamage && !healing)
+            {
+
+                yield return new WaitForSeconds(0.7f);
+
+                playerHealth -= 1;
+                //Debug.Log(enemyHealth);
+                if (healing || heal > playerHealthdamage)
+                {
+                    playerHealthdamage = 0;
+                    break;
+                }
+                i++;
+
+            }
+            playerHealthdamage = 0;
         }
     }
 

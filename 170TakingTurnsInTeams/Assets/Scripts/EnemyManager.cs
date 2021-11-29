@@ -26,10 +26,14 @@ public class EnemyManager : MonoBehaviour
     private GameObject EastFlank;
     private GameObject SouthFlank;
     private GameObject WestFlank;
+    private GameObject gameManagers;
+    BattleManager battleManager;
+    Attack attack;
 
     // Start is called before the first frame update
     void Start()
     {
+        gameManagers = GameObject.Find("Game managers");
         Vector3 buffer = new Vector3(0, 1, 0);
 
         RaycastHit2D hit = Physics2D.Raycast(location.transform.position + buffer, Vector2.up, 4, positions);
@@ -73,75 +77,130 @@ public class EnemyManager : MonoBehaviour
             
             switch(rando){
                 case 3:
-                    print("first move");
+                    //print("first move");
+                    attack = Resources.Load("Attacks/" + "RandomAttack1") as Attack;
+                    
+                    Debug.Log(attack);
                     break;
                 case 2:
-                    print("second move");
+                    //print("second move");
+                    attack = Resources.Load("Attacks/" + "RandomAttack1") as Attack;
+                    
+                    Debug.Log(attack);
                     break;
                 case 1:
-                    print("third move");
+                    //print("third move");
+                    attack = Resources.Load("Attacks/" + "RandomAttack1") as Attack;
+
+                    Debug.Log(attack);
                     break;
                 case 0:
-                    print("fourth move");
+                    //print("fourth move");
+                    attack = Resources.Load("Attacks/" + "RandomAttack1") as Attack;
+
+                    Debug.Log(attack);
                     break;  
             }
+            gameManagers.GetComponent<ScrollingHealth>().playersGettingDamage(target, attack.Power);
         }
         if(SouthFlankCharacter == target){
             //the player that just attacked the enemy is in the south position (below enemy)
             print("SOUTH");
 
-            switch(rando){
+            switch (rando)
+            {
                 case 3:
-                    print("first move");
+                    //print("first move");
+                    attack = Resources.Load("Attacks/" + "RandomAttack1") as Attack;
+
+                    Debug.Log(attack);
                     break;
                 case 2:
-                    print("second move");
+                    //print("second move");
+                    attack = Resources.Load("Attacks/" + "RandomAttack1") as Attack;
+
+                    Debug.Log(attack);
                     break;
                 case 1:
-                    print("third move");
+                    //print("third move");
+                    attack = Resources.Load("Attacks/" + "RandomAttack1") as Attack;
+
+                    Debug.Log(attack);
                     break;
                 case 0:
-                    print("fourth move");
-                    break;  
+                    //print("fourth move");
+                    attack = Resources.Load("Attacks/" + "RandomAttack1") as Attack;
+
+                    Debug.Log(attack);
+                    break;
             }
+            gameManagers.GetComponent<ScrollingHealth>().playersGettingDamage(target, attack.Power);
         }
         if(EastFlankCharacter == target){
             //the player that just attacked the enemy is in the east position (right of enemy)
             print("EAST");
 
-            switch(rando){
+            switch (rando)
+            {
                 case 3:
-                    print("first move");
+                    //print("first move");
+                    attack = Resources.Load("Attacks/" + "RandomAttack1") as Attack;
+
+                    Debug.Log(attack);
                     break;
                 case 2:
-                    print("second move");
+                    //print("second move");
+                    attack = Resources.Load("Attacks/" + "RandomAttack1") as Attack;
+
+                    Debug.Log(attack);
                     break;
                 case 1:
-                    print("third move");
+                    //print("third move");
+                    attack = Resources.Load("Attacks/" + "RandomAttack1") as Attack;
+
+                    Debug.Log(attack);
                     break;
                 case 0:
-                    print("fourth move");
-                    break;  
+                    //print("fourth move");
+                    attack = Resources.Load("Attacks/" + "RandomAttack1") as Attack;
+
+                    Debug.Log(attack);
+                    break;
             }
+            gameManagers.GetComponent<ScrollingHealth>().playersGettingDamage(target, attack.Power);
         }
         if(WestFlankCharacter == target){
             //the player that just attacked the enemy is in the west position (left of enemy)
             print("WEST");
 
-            switch(rando){
+            switch (rando)
+            {
                 case 3:
-                    print("first move");
+                    //print("first move");
+                    attack = Resources.Load("Attacks/" + "RandomAttack1") as Attack;
+
+                    Debug.Log(attack);
                     break;
                 case 2:
-                    print("second move");
+                    //print("second move");
+                    attack = Resources.Load("Attacks/" + "RandomAttack1") as Attack;
+
+                    Debug.Log(attack);
                     break;
                 case 1:
-                    print("third move");
+                    //print("third move");
+                    attack = Resources.Load("Attacks/" + "RandomAttack1") as Attack;
+
+                    Debug.Log(attack);
                     break;
                 case 0:
-                    print("fourth move");
-                    break;  
+                    //print("fourth move");
+                    attack = Resources.Load("Attacks/" + "RandomAttack1") as Attack;
+
+                    Debug.Log(attack);
+                    break;
             }
+            gameManagers.GetComponent<ScrollingHealth>().playersGettingDamage(target, attack.Power);
         }
     }
     
