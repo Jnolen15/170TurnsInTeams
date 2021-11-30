@@ -18,7 +18,7 @@ public class PositionManager : MonoBehaviour
     public GameObject defaultMiddle;
     public GameObject defaultBottom;
 
-    // Enemy positions
+    // Positions
     public Transform[] enemyPositions;
 
     // Selected charecter
@@ -38,6 +38,16 @@ public class PositionManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Hide position Indicators
+        for(int i = 0; i < transform.childCount; i++)
+        {
+            if(this.transform.GetChild(i).gameObject.layer != 8) // Not an enemy position
+            {
+                this.transform.GetChild(i).GetChild(0).GetComponent<SpriteRenderer>().color = Color.blue;
+                this.transform.GetChild(i).GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
+            }
+        }
+        
         // Instantiate enemies.
         for (int i = 0; i < enemyPositions.Length; i++)
         {
@@ -210,6 +220,27 @@ public class PositionManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //HighlightTargets();
+        // Show position Indicators of available spaces
+        if (selectedCharacter != null && state == GameState.moveSelect)
+        {
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                if (this.transform.GetChild(i).gameObject.layer != 8) // Not an enemy position
+                {
+                    if(this.transform.GetChild(i).GetComponent<Position>().character == null)
+                        this.transform.GetChild(i).GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
+                }
+            }
+        }
+        else
+        {
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                if (this.transform.GetChild(i).gameObject.layer != 8) // Not an enemy position
+                {
+                    this.transform.GetChild(i).GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
+                }
+            }
+        }
     }
 }

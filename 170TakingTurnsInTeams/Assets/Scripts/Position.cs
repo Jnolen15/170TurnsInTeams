@@ -35,7 +35,7 @@ public class Position : MonoBehaviour
         character.transform.position = this.transform.position;
         // Assign character's position
         character.GetComponent<PCManager>().location = this.transform;
-        
+
     }
 
     public void unasignPosition()
@@ -63,6 +63,7 @@ public class Position : MonoBehaviour
                         BattleManager.swap = true;
                         //print("CHARACTER: " + charReference.name);
                         pm.selectedCharacterlocation = this.gameObject;
+                        character.GetComponent<Character>().indicatorColor = "Green";
                     }
                 }
                 else if (character.tag == "Enemy")
@@ -86,6 +87,7 @@ public class Position : MonoBehaviour
                 // Check if empty space is clicked during attack target selection
                 if (pm.state == PositionManager.GameState.targetSelect)
                 {
+                    pm.GetComponent<PositionManager>().selectedCharacter.GetComponent<Character>().indicatorColor = "White";
                     pm.UnhighlightTargets();
                     pm.UnselectChar();
                     pm.state = PositionManager.GameState.charSelect;
@@ -96,10 +98,11 @@ public class Position : MonoBehaviour
                 pm.selectedCharacterlocation.GetComponent<Position>().unasignPosition();
                 // Asign new pos
                 asignPosition(pm.selectedCharacter);
+                pm.selectedCharacterlocation = this.transform.gameObject;
                 // Unselect character
                 //pm.selectedCharacter.transform.localScale = Vector3.one;
                 //pm.selectedCharacter = null;
-                pm.selectedCharacterlocation = null;
+                //pm.selectedCharacterlocation = null;
             }
             else
             {
@@ -125,6 +128,14 @@ public class Position : MonoBehaviour
                         charReference = character;
                         BattleManager.swap = true;
                         pm.selectedCharacterlocation = this.gameObject;
+                        // Change other character's indicators then this one. Sorry its so sloppy, but we are running out of time.
+                        if (pm.GetComponent<PositionManager>().knight.GetComponent<Character>().indicatorColor == "Green")
+                            pm.GetComponent<PositionManager>().knight.GetComponent<Character>().indicatorColor = "White";
+                        if (pm.GetComponent<PositionManager>().mage.GetComponent<Character>().indicatorColor == "Green")
+                            pm.GetComponent<PositionManager>().mage.GetComponent<Character>().indicatorColor = "White";
+                        if (pm.GetComponent<PositionManager>().rouge.GetComponent<Character>().indicatorColor == "Green")
+                            pm.GetComponent<PositionManager>().rouge.GetComponent<Character>().indicatorColor = "White";
+                        character.GetComponent<Character>().indicatorColor = "Green";
                     }
                 }
                 else if (character.tag == "Enemy")

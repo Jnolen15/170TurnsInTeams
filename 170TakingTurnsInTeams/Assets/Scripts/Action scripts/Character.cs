@@ -16,10 +16,15 @@ public class Character : MonoBehaviour
     public int mana;
     private GameObject playerHealthText;
     private GameObject playerManaText;
+    private GameObject indicator;
+    public string indicatorColor = "White";
     GameObject gameManagers;
 
     void Start()
     {
+        indicator = this.transform.GetChild(1).gameObject;
+        indicator.GetComponent<SpriteRenderer>().color = Color.white;
+
         health = max_health;
         mana = max_mana;
         playerHealthText = gameObject.transform.Find("Canvas").gameObject;
@@ -46,8 +51,15 @@ public class Character : MonoBehaviour
     public void Update()
     {
         if(hasAttacked)
-            //this.GetComponent<SpriteRenderer>().color = new Color(0.5f, 0.5f, 0.5f);
+            indicatorColor = "Red";
 
         playerManaText.transform.Find("Mana").GetComponent<TextMeshProUGUI>().text = "MP: " + mana.ToString();
+
+        if(indicatorColor == "White")
+            indicator.GetComponent<SpriteRenderer>().color = Color.white;
+        if (indicatorColor == "Green")
+            indicator.GetComponent<SpriteRenderer>().color = Color.green;
+        if (indicatorColor == "Red")
+            indicator.GetComponent<SpriteRenderer>().color = Color.red;
     }
 }
