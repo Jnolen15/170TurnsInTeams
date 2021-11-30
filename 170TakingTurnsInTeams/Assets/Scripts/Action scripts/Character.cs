@@ -49,11 +49,8 @@ public class Character : MonoBehaviour
     public void playerHealingTheDamage(int heal)
     {
 
-        healing = true;
         StopCoroutine(inst);
         StartCoroutine(healthScrollingUp(heal));
-        
-
     }
 
     public IEnumerator playerHealthScrollingDown(int damage)
