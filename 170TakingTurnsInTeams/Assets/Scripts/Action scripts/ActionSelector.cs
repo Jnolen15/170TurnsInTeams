@@ -69,7 +69,7 @@ public class ActionSelector : MonoBehaviour
         Attack attack = Resources.Load("Attacks/" + actionTexts[idx].text) as Attack;
 
         // Target Enemies if player has enough MP
-        if (attack.ManaPoints < battleManager.posManager.selectedCharacter.gameObject.GetComponent<Character>().mana)
+        if (attack.ManaPoints <= battleManager.posManager.selectedCharacter.gameObject.GetComponent<Character>().mana)
         {
             if (attack.Target == "Enemy")
             {
