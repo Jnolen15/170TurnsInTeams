@@ -67,10 +67,10 @@ public class PositionManager : MonoBehaviour
     {
         if (selectedCharacter != null)
         {
-            selectedCharacter.transform.localScale = Vector3.one;
+            selectedCharacter.GetComponent<SpriteRenderer>().size = Vector2.one;
         }
         selectedCharacter = character;
-        character.transform.localScale = new Vector3(1.25f, 1.25f, 1.25f);
+        character.GetComponent<SpriteRenderer>().size = new Vector2(10f, 10f);
         state = GameState.moveSelect;
     }
 
@@ -78,7 +78,7 @@ public class PositionManager : MonoBehaviour
     {
         if (selectedCharacter != null)
         {
-            selectedCharacter.transform.localScale = Vector3.one;
+            selectedCharacter.GetComponent<SpriteRenderer>().size = Vector2.one;
             selectedCharacter = null;
         }
         state = GameState.charSelect;
