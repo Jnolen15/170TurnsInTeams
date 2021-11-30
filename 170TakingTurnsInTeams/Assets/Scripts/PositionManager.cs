@@ -216,6 +216,9 @@ public class PositionManager : MonoBehaviour
         {
             knight.GetComponent<SpriteRenderer>().color = Color.white;
         }
+        knight.GetComponent<Character>().hasAttacked = false;
+        rouge.GetComponent<Character>().hasAttacked = false;
+        mage.GetComponent<Character>().hasAttacked = false;
         state = GameState.charSelect;
     }
 

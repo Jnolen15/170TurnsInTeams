@@ -24,13 +24,19 @@ public class BattleManager : MonoBehaviour
     public Queue<Action> actionQueue;
     Attack currAttack;
     public GameObject currActor;
+    public List<Character> activeAllies;
 
     void Start()
     {
         test.Init();
         nameText.enabled = false;
         actionQueue = new Queue<Action>();
+        activeAllies = new List<Character>();
+        activeAllies.Add(posManager.knight.GetComponent<Character>());
+        activeAllies.Add(posManager.rouge.GetComponent<Character>());
+        activeAllies.Add(posManager.mage.GetComponent<Character>());
     }
+
     private void Update() {
         
         //have someway of storing what the last placed hero piece was
@@ -113,6 +119,20 @@ public class BattleManager : MonoBehaviour
         currActor = null;
         currAttack = null;
 
+        bool turnOver = true;
+        foreach (Character ch in activeAllies)
+        {
+            if (!ch.hasAttacked)
+            {
+                turnOver = false;
+            }
+        }
+
+
+        if (turnOver)
+        {
+            posManager.ResetTurn();
+        }
     }
 
 }
