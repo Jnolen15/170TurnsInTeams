@@ -1243,8 +1243,8 @@ MonoBehaviour:
   _base: {fileID: 11400000, guid: 38264c4285df75145b0edbdd2f0ec585, type: 2}
   hasAttacked: 0
   dead: 0
-  max_health: 7
-  health: 7
+  max_health: 70
+  health: 70
   max_mana: 30
   mana: 0
   healthScrollTimer: 0.2
@@ -4631,8 +4631,8 @@ MonoBehaviour:
   _base: {fileID: 11400000, guid: b1bad47dbe631a844ac80b995b6dc12c, type: 2}
   hasAttacked: 0
   dead: 0
-  max_health: 5
-  health: 5
+  max_health: 50
+  health: 50
   max_mana: 40
   mana: 0
   healthScrollTimer: 0.2
@@ -5503,8 +5503,8 @@ MonoBehaviour:
   _base: {fileID: 11400000, guid: 88a1bdd3eea59184c8e01d907100b099, type: 2}
   hasAttacked: 0
   dead: 0
-  max_health: 8
-  health: 8
+  max_health: 80
+  health: 80
   max_mana: 30
   mana: 0
   healthScrollTimer: 0.2
