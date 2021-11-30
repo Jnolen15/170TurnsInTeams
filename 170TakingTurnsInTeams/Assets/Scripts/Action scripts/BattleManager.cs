@@ -122,6 +122,11 @@ public class BattleManager : MonoBehaviour
         bool turnOver = true;
         foreach (Character ch in activeAllies)
         {
+            if (ch == null)
+            {
+                activeAllies.Remove(ch);
+                continue;
+            }
             if (!ch.hasAttacked)
             {
                 turnOver = false;
