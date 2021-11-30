@@ -168,6 +168,9 @@ public class EnemyManager : MonoBehaviour
             // executes chosen attack
             Debug.Log(attack);
             gameManagers.GetComponent<ScrollingHealth>().playersGettingDamage(target, attack.Power);
+            if(moveImage.enabled == true){
+                StopCoroutine(enableDisableEnemyText());
+            }
             StartCoroutine(enableDisableEnemyText());
             moveText.text = "Dog used: " + attack;
         }

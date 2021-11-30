@@ -254,6 +254,9 @@ public class PositionManager : MonoBehaviour
                 }
             }
         }
+        if(rouge.GetComponent<Character>().dead && knight.GetComponent<Character>().dead && mage.GetComponent<Character>().dead){
+            SceneManager.LoadScene("GameOver");
+        }
     }
     public void checkIfPlayersWin(GameObject destroyObject){
         enemies.Remove(destroyObject);
