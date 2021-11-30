@@ -144,7 +144,7 @@ public class ScrollingHealth : MonoBehaviour
                 yield return new WaitForSeconds(healthScrollTimer);
                 playerToAttack.GetComponent<Character>().health += 1;
                 Debug.Log(playerToAttack.GetComponent<Character>().health);
-                if (playerToAttack.GetComponent<Character>().health >= max_health || healthdamage > heal)
+                if (playerToAttack.GetComponent<Character>().health >= playerToAttack.GetComponent<Character>().max_health || playerHealthdamage > heal)
                 {
                     heal = 0;
                     break;
