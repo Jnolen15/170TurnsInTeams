@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Shadow Strike
   m_EditorClassIdentifier: 
   nameOfAttack: Shadow Strike
-  desc: "MP: 2 DMG: 14 Location: Adjacent\nIf the rogue isn\u2019t in a favorable
-    position, this move is a solid, consistent attack\r"
+  desc: "MP: 0 DMG: 14 Location: Adjacent\nThis attack restores MP.\nIf the rogue
+    isn\u2019t in a favorable position, this move is a solid, consistent attack\r"
   power: 14
-  manaPoints: 2
+  manaPoints: 0
   location: A
   target: Enemy
   healing: 0

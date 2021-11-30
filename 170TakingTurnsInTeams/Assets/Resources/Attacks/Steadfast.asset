@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Steadfast
   m_EditorClassIdentifier: 
   nameOfAttack: Steadfast
-  desc: 'MP: 0 DMG: 0 Location: Adjacent
+  desc: 'MP: 10 DMG: 0 Location: Adjacent
 
     Heals slef for 20'
   power: 0
-  manaPoints: 0
+  manaPoints: 10
   location: A
   target: Self
   healing: 20

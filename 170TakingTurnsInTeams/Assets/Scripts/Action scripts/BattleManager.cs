@@ -90,6 +90,9 @@ public class BattleManager : MonoBehaviour
             posManager.UnhighlightTargets();
             posManager.UnselectChar();
             posManager.state = PositionManager.GameState.charSelect;
+            // If mana cost is 0 its a recahrge move. Gain mana
+            if (currAttack.ManaPoints == 0)
+                currActor.GetComponent<Character>().mana += damageNum;
 
             //calls function to make enemy attack the player character that just attacked them
             target.GetComponent<EnemyManager>().Attack(currActor);

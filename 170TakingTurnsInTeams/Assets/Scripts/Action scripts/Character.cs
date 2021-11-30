@@ -25,7 +25,7 @@ public class Character : MonoBehaviour
         playerHealthText = gameObject.transform.Find("Canvas").gameObject;
         playerHealthText.transform.Find("Health").GetComponent<TextMeshProUGUI>().text = "HP: " + health.ToString();
         playerManaText = gameObject.transform.Find("Canvas").gameObject;
-        playerManaText.transform.Find("Mana").GetComponent<TextMeshProUGUI>().text = "HP: " + mana.ToString();
+        playerManaText.transform.Find("Mana").GetComponent<TextMeshProUGUI>().text = "MP: " + mana.ToString();
     }
     public baseCharacter baseChar{
         get{return _base; }
@@ -46,8 +46,8 @@ public class Character : MonoBehaviour
     public void Update()
     {
         if(hasAttacked)
-            this.GetComponent<SpriteRenderer>().color = new Color(0.5f, 0.5f, 0.5f);
+            //this.GetComponent<SpriteRenderer>().color = new Color(0.5f, 0.5f, 0.5f);
 
-        playerManaText.transform.Find("Mana").GetComponent<TextMeshProUGUI>().text = "HP: " + mana.ToString();
+        playerManaText.transform.Find("Mana").GetComponent<TextMeshProUGUI>().text = "MP: " + mana.ToString();
     }
 }

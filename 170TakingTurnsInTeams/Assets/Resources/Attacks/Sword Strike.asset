@@ -15,7 +15,10 @@ MonoBehaviour:
   nameOfAttack: Sword Strike
   desc: 'MP: 0 DMG: 16 Location: Adjacent
 
-    A basic strike on a single target'
+    This attack restores MP.
+
+    A basic
+    strike on a single target'
   power: 16
   manaPoints: 0
   location: A

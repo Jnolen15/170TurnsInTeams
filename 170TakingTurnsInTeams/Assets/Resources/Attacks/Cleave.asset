@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Cleave
   m_EditorClassIdentifier: 
   nameOfAttack: Cleave
-  desc: 'MP: 0 DMG: 12 Location: Adjacent
+  desc: 'MP: 2 DMG: 12 Location: Adjacent
 
     A 90-degree sword swipe that attacks
     in 2 directions'
   power: 12
-  manaPoints: 0
+  manaPoints: 2
   location: A
   target: Enemy
   healing: 0
