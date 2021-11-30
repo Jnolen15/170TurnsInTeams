@@ -10,11 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b5d140e0deeb26f469d08e83fabd6ffc, type: 3}
-  m_Name: Knife Dance
+  m_Name: Revitalize
   m_EditorClassIdentifier: 
-  nameOfAttack: Knife Dance
-  desc: "Jump in the air and throw knives in 2 opposite directions, covering your
-    flanks\r"
-  power: 17
-  manaPoints: 6
-  cardinalDamageMultiplier: []
+  nameOfAttack: Revitalize
+  desc: Heal the target 35 HP
+  power: 0
+  manaPoints: 30
+  location: A

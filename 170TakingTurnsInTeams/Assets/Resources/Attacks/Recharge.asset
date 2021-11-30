@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b5d140e0deeb26f469d08e83fabd6ffc, type: 3}
-  m_Name: Steadfast
+  m_Name: Recharge
   m_EditorClassIdentifier: 
-  nameOfAttack: Steadfast
-  desc: Doubles Armor for a turn
+  nameOfAttack: Recharge
+  desc: "Focus inward and fully refill your MP\r"
   power: 0
   manaPoints: 0
-  cardinalDamageMultiplier: []
+  location: A

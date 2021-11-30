@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b5d140e0deeb26f469d08e83fabd6ffc, type: 3}
-  m_Name: Shield Bash
+  m_Name: Backstab
   m_EditorClassIdentifier: 
-  nameOfAttack: Shield Bash
-  desc: Ram into the enemy with the shield for a chance to stun them
-  power: 6
-  manaPoints: 4
-  cardinalDamageMultiplier: []
+  nameOfAttack: Backstab
+  desc: "Once \u201Cbehind\u201D an enemy, unleash a hidden strike that deals critical
+    damage\r"
+  power: 32
+  manaPoints: 6
+  location: W

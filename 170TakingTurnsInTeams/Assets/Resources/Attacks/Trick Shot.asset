@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b5d140e0deeb26f469d08e83fabd6ffc, type: 3}
-  m_Name: Forthright Lunge
+  m_Name: Trick Shot
   m_EditorClassIdentifier: 
-  nameOfAttack: Forthright Lunge
-  desc: An empowered piercing strike on a single target
-  power: 23
-  manaPoints: 8
-  cardinalDamageMultiplier: []
+  nameOfAttack: Trick Shot
+  desc: Trick an enemy into lowering their guard, then attack
+  power: 30
+  manaPoints: 15
+  location: A

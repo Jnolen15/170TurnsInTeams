@@ -33,10 +33,18 @@ public class ActionSelector : MonoBehaviour
 
     public void SelectAction(int idx)
     {
-        if (battleManager.posManager.state != PositionManager.GameState.moveSelect) return;
+        if (battleManager.posManager.state != PositionManager.GameState.moveSelect)
+        {
+            if (battleManager.posManager.state != PositionManager.GameState.targetSelect)
+            {
+                Debug.Log("Aborted. In state: " + battleManager.posManager.state);
+                return;
+            }
+        }
+        battleManager.posManager.UnhighlightTargets();
         Attack attack = Resources.Load("Attacks/" + actionTexts[idx].text) as Attack;
         battleManager.AddActionToQueue(attack);
-        battleManager.posManager.HighlightTargets();
-        //Debug.Log(attack);
+        battleManager.posManager.HighlightTargets(attack.Location);
+        Debug.Log("Picked" + attack.name);
     }
 }

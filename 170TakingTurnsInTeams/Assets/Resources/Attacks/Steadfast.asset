@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b5d140e0deeb26f469d08e83fabd6ffc, type: 3}
-  m_Name: Cleave
+  m_Name: Steadfast
   m_EditorClassIdentifier: 
-  nameOfAttack: Cleave
-  desc: A 90-degree sword swipe that attacks in 2 directions
-  power: 12
+  nameOfAttack: Steadfast
+  desc: Doubles Armor for a turn
+  power: 0
   manaPoints: 0
-  cardinalDamageMultiplier: []
+  location: A

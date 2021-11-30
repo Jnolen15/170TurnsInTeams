@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b5d140e0deeb26f469d08e83fabd6ffc, type: 3}
-  m_Name: Bolt Snipe
+  m_Name: Forthright Lunge
   m_EditorClassIdentifier: 
-  nameOfAttack: Bolt Snipe
-  desc: Take aim and fire at the weak point of an enemy
-  power: 30
-  manaPoints: 25
-  cardinalDamageMultiplier: []
+  nameOfAttack: Forthright Lunge
+  desc: An empowered piercing strike on a single target
+  power: 23
+  manaPoints: 8
+  location: E

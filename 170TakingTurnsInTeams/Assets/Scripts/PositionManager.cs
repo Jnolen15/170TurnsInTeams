@@ -74,7 +74,74 @@ public class PositionManager : MonoBehaviour
         state = GameState.charSelect;
     }
 
-    public void HighlightTargets()
+    public void HighlightTargets(string pos)
+    {
+        if (state != GameState.targetSelect) return;
+        if (selectedCharacter == null)
+        {
+            return;
+        }
+
+        // If location is Any, highlight all enemies
+        if (pos == "A")
+        {
+            // Highlight all enemies
+            foreach (var enemyPos in enemyPositions)
+            {
+                if (enemyPos.GetComponent<Position>().character != null)
+                {
+                    enemyPos.GetComponent<Position>().character.gameObject.GetComponent<SpriteRenderer>().color = new Color(0.6f, 1f, 0.6f);
+                }
+            }
+        }
+        // Else compare target position and higlight acordingly
+        else
+        {
+            GameObject target;
+
+            // Check for valid North target
+            if(pos == "N")
+            {
+                target = selectedCharacter.GetComponent<PCManager>().NorthFlankCharacter;
+                if (target != null)
+                {
+                    target.GetComponent<SpriteRenderer>().color = new Color(0.6f, 1f, 0.6f);
+                }
+            }
+
+            // Check for valid East target
+            if (pos == "E")
+            {
+                target = selectedCharacter.GetComponent<PCManager>().EastFlankCharacter;
+                if (target != null)
+                {
+                    target.GetComponent<SpriteRenderer>().color = new Color(0.6f, 1f, 0.6f);
+                }
+            }
+
+            // Check for valid South target
+            if (pos == "S")
+            {
+                target = selectedCharacter.GetComponent<PCManager>().SouthFlankCharacter;
+                if (target != null)
+                {
+                    target.GetComponent<SpriteRenderer>().color = new Color(0.6f, 1f, 0.6f);
+                }
+            }
+
+            // Check for valid West target
+            if (pos == "W")
+            {
+                target = selectedCharacter.GetComponent<PCManager>().WestFlankCharacter;
+                if (target != null)
+                {
+                    target.GetComponent<SpriteRenderer>().color = new Color(0.6f, 1f, 0.6f);
+                }
+            }
+        }
+    }
+
+    /*public void HighlightTargets()
     {
         if (state != GameState.targetSelect) return;
         if (selectedCharacter == null)
@@ -141,7 +208,7 @@ public class PositionManager : MonoBehaviour
                 target.GetComponent<SpriteRenderer>().color = new Color(0.6f, 1f, 0.6f);
             }
         }
-    }
+    }*/
 
     public void UnhighlightTargets()
     {

@@ -17,4 +17,4 @@ MonoBehaviour:
     attack\r"
   power: 14
   manaPoints: 2
-  cardinalDamageMultiplier: []
+  location: A
