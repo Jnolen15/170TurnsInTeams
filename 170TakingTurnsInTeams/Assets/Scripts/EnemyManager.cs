@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class EnemyManager : MonoBehaviour
 {
     // Enemy type
@@ -30,10 +30,16 @@ public class EnemyManager : MonoBehaviour
     BattleManager battleManager;
     Attack attack;
 
+    private Text moveText;
+    private Image moveImage;
     // Start is called before the first frame update
     void Start()
     {
         gameManagers = GameObject.Find("Game managers");
+        moveText = GameObject.Find("enemyMoveText").GetComponent<Text>();
+        moveImage = GameObject.Find("moveImage").GetComponent<Image>();
+        moveImage.enabled = false;
+        moveText.enabled = false;
         Vector3 buffer = new Vector3(0, 1, 0);
 
         RaycastHit2D hit = Physics2D.Raycast(location.transform.position + buffer, Vector2.up, 4, positions);
@@ -99,6 +105,8 @@ public class EnemyManager : MonoBehaviour
             // executes chosen attack
             Debug.Log(attack);
             gameManagers.GetComponent<ScrollingHealth>().playersGettingDamage(target, attack.Power);
+            StartCoroutine(enableDisableEnemyText());
+            moveText.text = "Spider used: " + attack;
         }
 
         if (classtype == classeTypes.Dog) // Dog attack moveset
@@ -160,6 +168,15 @@ public class EnemyManager : MonoBehaviour
             // executes chosen attack
             Debug.Log(attack);
             gameManagers.GetComponent<ScrollingHealth>().playersGettingDamage(target, attack.Power);
+            StartCoroutine(enableDisableEnemyText());
+            moveText.text = "Dog used: " + attack;
         }
+    }
+    public IEnumerator enableDisableEnemyText(){
+        moveImage.enabled = true;
+        moveText.enabled = true;
+        yield return new WaitForSeconds(3.0f);
+        moveImage.enabled = false;
+        moveText.enabled = false;
     }
 }

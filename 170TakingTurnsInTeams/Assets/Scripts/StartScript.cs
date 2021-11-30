@@ -19,4 +19,7 @@ public class StartScript : MonoBehaviour
     public void StartGame(){
         SceneManager.LoadScene(1);
     }
+    public void RestartGame(){
+        SceneManager.LoadScene("Menu");
+    }
 }

@@ -96,6 +96,7 @@ public class BattleManager : MonoBehaviour
 
             //calls function to make enemy attack the player character that just attacked them
             target.GetComponent<EnemyManager>().Attack(currActor);
+            //posManager.checkIfPlayersWin();
         }
         // If its a healing on a player
         if (currAttack.Target == "Player" || currAttack.Target == "Self")

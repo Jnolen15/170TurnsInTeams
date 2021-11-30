@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class PositionManager : MonoBehaviour
 {
     // Player Charecters
@@ -26,6 +26,7 @@ public class PositionManager : MonoBehaviour
     public GameObject selectedCharacterlocation;
 
     public GameState state;
+    public List<GameObject> enemies;
 
     public enum GameState
     {
@@ -55,12 +56,14 @@ public class PositionManager : MonoBehaviour
             {
                 GameObject boss = Instantiate(dog, enemyPositions[i].position, enemyPositions[i].rotation);
                 enemyPositions[i].GetComponent<Position>().character = boss;
+                enemies.Add(boss);
                 boss.GetComponent<EnemyManager>().location = enemyPositions[i];
             }
             else
             {
                 GameObject enemy = Instantiate(spider, enemyPositions[i].position, enemyPositions[i].rotation);
                 enemyPositions[i].GetComponent<Position>().character = enemy;
+                enemies.Add(enemy);
                 enemy.GetComponent<EnemyManager>().location = enemyPositions[i];
 
             }
@@ -242,5 +245,13 @@ public class PositionManager : MonoBehaviour
                 }
             }
         }
+    }
+    public void checkIfPlayersWin(GameObject destroyObject){
+        enemies.Remove(destroyObject);
+        if(enemies.Count <= 0){
+            print("Player wins!");
+            SceneManager.LoadScene("Win");
+        }
+        Destroy(destroyObject);
     }
 }

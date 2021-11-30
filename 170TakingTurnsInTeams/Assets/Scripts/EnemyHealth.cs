@@ -11,12 +11,14 @@ public class EnemyHealth : MonoBehaviour
     private GameObject enemyHealthText;
     GameObject gameManagers;
     ScrollingHealth damage;
+    private PositionManager posMan;
     void Start()
     {
         gameManagers = GameObject.Find("Game managers");
         //damage = gameManagers.GetComponent<ScrollingHealth>();
         enemyHealthText = gameObject.transform.Find("Canvas").gameObject;
         enemyHealthText.transform.Find("Text (TMP)").GetComponent<TextMeshProUGUI>().text = "HP: " + health.ToString();
+        posMan = GameObject.Find("PositionManager").GetComponent<PositionManager>();
     }
     private void Update()
     {
@@ -27,7 +29,8 @@ public class EnemyHealth : MonoBehaviour
 
         if (health <= 0)
         {
-            Destroy(gameObject);
+            posMan.checkIfPlayersWin(gameObject);
+            //Destroy(gameObject);
         }
     }
 
