@@ -36,4 +36,10 @@ public class Character : MonoBehaviour
             }
         }
     }
+
+    public void Update()
+    {
+        if(hasAttacked)
+            this.GetComponent<SpriteRenderer>().color = new Color(0.5f, 0.5f, 0.5f);
+    }
 }

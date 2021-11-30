@@ -1457,7 +1457,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerHealth: 150
   max_health: 150
-  healthScrollTimer: 0.4
+  healthScrollTimer: 0.2
   healthdamage: 0
   playerHealthdamage: 0
   heal: 0

@@ -85,7 +85,6 @@ public class BattleManager : MonoBehaviour
             damageNum = currAttack.Power;
             this.gameObject.GetComponent<ScrollingHealth>().enemiesGettingDamage(target, damageNum);
             currActor.GetComponent<Character>().hasAttacked = true;
-            currActor.GetComponent<SpriteRenderer>().color = new Color(0.5f, 0.5f, 0.5f);
             posManager.UnhighlightTargets();
             posManager.UnselectChar();
             posManager.state = PositionManager.GameState.charSelect;
@@ -100,7 +99,6 @@ public class BattleManager : MonoBehaviour
             healNum = currAttack.Healing;
             this.gameObject.GetComponent<ScrollingHealth>().playersGettingHealing(target, healNum);
             currActor.GetComponent<Character>().hasAttacked = true;
-            currActor.GetComponent<SpriteRenderer>().color = new Color(0.5f, 0.5f, 0.5f);
             posManager.UnhighlightTargets();
             posManager.UnselectChar();
             posManager.state = PositionManager.GameState.charSelect;
