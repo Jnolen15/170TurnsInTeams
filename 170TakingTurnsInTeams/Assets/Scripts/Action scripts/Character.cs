@@ -10,6 +10,7 @@ public class Character : MonoBehaviour
     baseCharacter _base;
 
     public bool hasAttacked = false;
+    public bool dead = false;
     public int max_health = 120;
     public int health;
     public int max_mana = 60;
@@ -135,7 +136,9 @@ public class Character : MonoBehaviour
 
         if (health <= 0)
         {
-            Destroy(gameObject);
+            dead = true;
+            hasAttacked = true;
+            indicatorColor = "Red";
         }
     }
 }

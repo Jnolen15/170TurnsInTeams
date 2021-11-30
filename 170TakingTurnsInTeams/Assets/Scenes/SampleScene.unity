@@ -1242,9 +1242,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _base: {fileID: 11400000, guid: 38264c4285df75145b0edbdd2f0ec585, type: 2}
   hasAttacked: 0
-  max_health: 120
-  health: 120
-  max_mana: 60
+  dead: 0
+  max_health: 7
+  health: 7
+  max_mana: 30
   mana: 0
   healthScrollTimer: 0.2
   indicatorColor: White
@@ -1853,6 +1854,7 @@ GameObject:
   - component: {fileID: 737241791}
   - component: {fileID: 737241790}
   - component: {fileID: 737241789}
+  - component: {fileID: 737241792}
   m_Layer: 0
   m_Name: Game managers
   m_TagString: Untagged
@@ -1918,6 +1920,102 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &737241792
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 737241788}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 1fb73cb7489304c3bbb791056d26d1e0, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.3
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &773265946
 GameObject:
   m_ObjectHideFlags: 0
@@ -4532,9 +4630,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _base: {fileID: 11400000, guid: b1bad47dbe631a844ac80b995b6dc12c, type: 2}
   hasAttacked: 0
-  max_health: 100
-  health: 100
-  max_mana: 60
+  dead: 0
+  max_health: 50
+  health: 50
+  max_mana: 40
   mana: 0
   healthScrollTimer: 0.2
   indicatorColor: White
@@ -5403,9 +5502,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _base: {fileID: 11400000, guid: 88a1bdd3eea59184c8e01d907100b099, type: 2}
   hasAttacked: 0
-  max_health: 180
-  health: 180
-  max_mana: 60
+  dead: 0
+  max_health: 80
+  health: 80
+  max_mana: 30
   mana: 0
   healthScrollTimer: 0.2
   indicatorColor: White

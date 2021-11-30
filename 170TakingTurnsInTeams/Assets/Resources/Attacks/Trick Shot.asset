@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Trick Shot
   m_EditorClassIdentifier: 
   nameOfAttack: Trick Shot
-  desc: 'MP: 6 DMG: 30 Location: Adjacent
+  desc: 'MP: 6 DMG: 15 Location: Adjacent
 
     Trick an enemy into lowering their
     guard, then attack'
-  power: 30
+  power: 15
   manaPoints: 6
   location: A
   target: Enemy

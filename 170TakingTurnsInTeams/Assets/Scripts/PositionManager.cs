@@ -172,10 +172,13 @@ public class PositionManager : MonoBehaviour
 
     public void HighlightPlayers()
     {
-        // Highlight all Players
-        rouge.gameObject.GetComponent<SpriteRenderer>().color = new Color(0.6f, 1f, 0.6f);
-        knight.gameObject.GetComponent<SpriteRenderer>().color = new Color(0.6f, 1f, 0.6f);
-        mage.gameObject.GetComponent<SpriteRenderer>().color = new Color(0.6f, 1f, 0.6f);
+        // Highlight all Players if they are not dead
+        if(rouge.gameObject.GetComponent<Character>().dead != true)
+            rouge.gameObject.GetComponent<SpriteRenderer>().color = new Color(0.6f, 1f, 0.6f);
+        if (knight.gameObject.GetComponent<Character>().dead != true)
+            knight.gameObject.GetComponent<SpriteRenderer>().color = new Color(0.6f, 1f, 0.6f);
+        if (mage.gameObject.GetComponent<Character>().dead != true)
+            mage.gameObject.GetComponent<SpriteRenderer>().color = new Color(0.6f, 1f, 0.6f);
     }
 
     public void HighlightSelf(string player)
@@ -207,14 +210,17 @@ public class PositionManager : MonoBehaviour
         if (rouge.activeInHierarchy)
         {
             rouge.GetComponent<SpriteRenderer>().color = Color.white;
+            rouge.GetComponent<Character>().indicatorColor = "White";
         }
         if (mage.activeInHierarchy)
         {
             mage.GetComponent<SpriteRenderer>().color = Color.white;
+            mage.GetComponent<Character>().indicatorColor = "White";
         }
         if (knight.activeInHierarchy)
         {
             knight.GetComponent<SpriteRenderer>().color = Color.white;
+            knight.GetComponent<Character>().indicatorColor = "White";
         }
         knight.GetComponent<Character>().hasAttacked = false;
         rouge.GetComponent<Character>().hasAttacked = false;

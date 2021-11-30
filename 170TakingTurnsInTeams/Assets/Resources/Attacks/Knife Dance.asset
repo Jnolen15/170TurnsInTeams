@@ -13,10 +13,12 @@ MonoBehaviour:
   m_Name: Knife Dance
   m_EditorClassIdentifier: 
   nameOfAttack: Knife Dance
-  desc: "MP: 6 DMG: 17 Location: Adjacent\nJump in the air and throw knives in 2
-    opposite directions, covering your flanks\r"
+  desc: 'MP: 6 DMG: 17 Location: East
+
+    Jump in the air and throw knives at the
+    enemy head on.'
   power: 17
   manaPoints: 6
-  location: A
+  location: E
   target: Enemy
   healing: 0

@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6261e2df137824b4ab890f17276c7039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 150
   healthScrollTimer: 0.2
 --- !u!114 &-8614266792010685267
 MonoBehaviour:

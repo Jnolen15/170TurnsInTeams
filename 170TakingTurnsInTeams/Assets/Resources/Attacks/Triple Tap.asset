@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Triple Tap
   m_EditorClassIdentifier: 
   nameOfAttack: Triple Tap
-  desc: 'MP: 40 DMG: 10 Location: Adjacent
+  desc: 'MP: 10 DMG: 20 Location: Adjacent
 
     Quickly stab an enemy three times
     in a single motion'

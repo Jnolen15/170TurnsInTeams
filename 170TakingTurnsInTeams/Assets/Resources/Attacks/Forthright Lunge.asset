@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Forthright Lunge
   m_EditorClassIdentifier: 
   nameOfAttack: Forthright Lunge
-  desc: 'MP: 8 DMG: 23 Location: East
+  desc: 'MP: 8 DMG: 30 Location: East
 
     An empowered piercing strike on a single
     target'
-  power: 23
+  power: 30
   manaPoints: 8
   location: E
   target: Enemy
