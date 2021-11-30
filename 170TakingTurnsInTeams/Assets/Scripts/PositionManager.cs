@@ -10,7 +10,8 @@ public class PositionManager : MonoBehaviour
     public GameObject knight;
 
     // Enemies
-    public GameObject goblin;
+    public GameObject spider;
+    public GameObject dog;
 
     // Default Postions
     public GameObject defaultTop;
@@ -40,11 +41,20 @@ public class PositionManager : MonoBehaviour
         // Instantiate enemies.
         for (int i = 0; i < enemyPositions.Length; i++)
         {
-            GameObject enemy = Instantiate(goblin, enemyPositions[i].position, enemyPositions[i].rotation);
-            enemyPositions[i].GetComponent<Position>().character = enemy;
-            enemy.GetComponent<EnemyManager>().location = enemyPositions[i];
-        }
+            if (i == 2)
+            {
+                GameObject boss = Instantiate(dog, enemyPositions[i].position, enemyPositions[i].rotation);
+                enemyPositions[i].GetComponent<Position>().character = boss;
+                boss.GetComponent<EnemyManager>().location = enemyPositions[i];
+            }
+            else
+            {
+                GameObject enemy = Instantiate(spider, enemyPositions[i].position, enemyPositions[i].rotation);
+                enemyPositions[i].GetComponent<Position>().character = enemy;
+                enemy.GetComponent<EnemyManager>().location = enemyPositions[i];
 
+            }
+        }
         // Set PC to default positions
         defaultTop.GetComponent<Position>().asignPosition(rouge);
         defaultMiddle.GetComponent<Position>().asignPosition(mage);

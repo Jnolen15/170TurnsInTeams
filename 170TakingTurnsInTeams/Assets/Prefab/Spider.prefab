@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -4353767110807433358}
   - component: {fileID: -8614266792010685267}
   m_Layer: 0
-  m_Name: Goblin
+  m_Name: Spider
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

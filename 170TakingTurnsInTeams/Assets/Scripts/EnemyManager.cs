@@ -7,7 +7,7 @@ public class EnemyManager : MonoBehaviour
     // Enemy type
     public enum classeTypes
     {
-        Goblin
+        Spider, Dog
     };
     public classeTypes classtype;
 

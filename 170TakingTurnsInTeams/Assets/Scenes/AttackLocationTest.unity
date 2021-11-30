@@ -2327,7 +2327,8 @@ MonoBehaviour:
   rouge: {fileID: 187055861}
   mage: {fileID: 364683307}
   knight: {fileID: 1563390893}
-  goblin: {fileID: 3784458836493938749, guid: 19bb2c803329bdd4186ba6bd8fd65c3c, type: 3}
+  spider: {fileID: 3784458836493938749, guid: 19bb2c803329bdd4186ba6bd8fd65c3c, type: 3}
+  dog: {fileID: 4993050895889679686, guid: f18abbbfa0aa1dc489e9814a321582b0, type: 3}
   defaultTop: {fileID: 335499253}
   defaultMiddle: {fileID: 1045874584}
   defaultBottom: {fileID: 1153344114}
