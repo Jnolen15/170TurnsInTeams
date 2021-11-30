@@ -22,6 +22,12 @@ public class Attack : ScriptableObject  //This really should be called attack ba
     [SerializeField]
     string location = "A";
 
+    [SerializeField]
+    string target = "Enemy";
+
+    [SerializeField]
+    int healing = 0;
+
     //[SerializeField]
     //float[] cardinalDamageMultiplier;
 
