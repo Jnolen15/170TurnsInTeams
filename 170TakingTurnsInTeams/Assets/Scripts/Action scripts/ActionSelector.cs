@@ -8,11 +8,18 @@ public class ActionSelector : MonoBehaviour
     List<Text> actionTexts;
 
     [SerializeField]
+    List<Text> descText;
+
+    [SerializeField]
     BattleManager battleManager;
     
     private void Start() {
         foreach(var val in actionTexts){
             val.enabled = false;
+        }
+        foreach (var val2 in descText)
+        {
+            val2.enabled = false;
         }
     }
     public void SetMoveNames(List<attackSelector> attacks)
@@ -27,6 +34,23 @@ public class ActionSelector : MonoBehaviour
             else
             {
                 actionTexts[i].text = "-";
+            }
+        }
+    }
+
+    public void SetMoveDesc(List<attackSelector> attacks)
+    {
+        Debug.Log(descText.Count);
+        for (int i = 0; i < descText.Count; ++i)
+        {
+            descText[i].enabled = true;
+            if (i < attacks.Count)
+            {
+                descText[i].text = attacks[i].Base.Desc;
+            }
+            else
+            {
+                descText[i].text = "-";
             }
         }
     }

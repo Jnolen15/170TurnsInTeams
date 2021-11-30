@@ -50,6 +50,8 @@ public class BattleManager : MonoBehaviour
         //print(chara);
         //print(chara.baseChar.PotentialMoves);
         actionText.SetMoveNames(chara.attacks);
+        actionText.SetMoveDesc(chara.attacks);
+
     }
 
     public void AddActionToQueue(Attack attack)
