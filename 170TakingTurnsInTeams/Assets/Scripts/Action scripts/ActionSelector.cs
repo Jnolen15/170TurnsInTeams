@@ -12,7 +12,10 @@ public class ActionSelector : MonoBehaviour
 
     [SerializeField]
     BattleManager battleManager;
-    
+    GameObject canvas;
+    private Text moveText;
+    private Image moveImage;
+    private IEnumerator inst = null;
     private void Start() {
         foreach(var val in actionTexts){
             val.enabled = false;
@@ -21,6 +24,11 @@ public class ActionSelector : MonoBehaviour
         {
             val2.enabled = false;
         }
+        moveText = GameObject.Find("enemyMoveText").GetComponent<Text>();
+        moveImage = GameObject.Find("moveImage").GetComponent<Image>();
+        moveImage.enabled = false;
+        moveText.enabled = false;
+
     }
     public void SetMoveNames(List<attackSelector> attacks)
     {
@@ -94,7 +102,22 @@ public class ActionSelector : MonoBehaviour
         }
         else
         {
+            inst = enableDisableManaText();
             Debug.Log("Not enough Mana!");
+            if (moveImage.enabled == true)
+            {
+                StopCoroutine(inst);
+            }
+            StartCoroutine(inst);
+            moveText.text = "No Mana";
         }
+    }
+    public IEnumerator enableDisableManaText()
+    {
+        moveImage.enabled = true;
+        moveText.enabled = true;
+        yield return new WaitForSeconds(3.0f);
+        moveImage.enabled = false;
+        moveText.enabled = false;
     }
 }
