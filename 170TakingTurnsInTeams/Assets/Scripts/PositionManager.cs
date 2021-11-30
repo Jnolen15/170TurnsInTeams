@@ -96,13 +96,19 @@ public class PositionManager : MonoBehaviour
         if (pos == "A")
         {
             // Highlight all enemies
-            foreach (var enemyPos in enemyPositions)
-            {
-                if (enemyPos.GetComponent<Position>().character != null)
-                {
-                    enemyPos.GetComponent<Position>().character.gameObject.GetComponent<SpriteRenderer>().color = new Color(0.6f, 1f, 0.6f);
-                }
-            }
+            GameObject ntarget = selectedCharacter.GetComponent<PCManager>().NorthFlankCharacter;
+            GameObject etarget = selectedCharacter.GetComponent<PCManager>().EastFlankCharacter;
+            GameObject starget = selectedCharacter.GetComponent<PCManager>().SouthFlankCharacter;
+            GameObject wtarget = selectedCharacter.GetComponent<PCManager>().WestFlankCharacter;
+
+            if (ntarget != null)
+                ntarget.gameObject.GetComponent<SpriteRenderer>().color = new Color(0.6f, 1f, 0.6f);
+            if (etarget != null)
+                etarget.gameObject.GetComponent<SpriteRenderer>().color = new Color(0.6f, 1f, 0.6f);
+            if (starget != null)
+                starget.gameObject.GetComponent<SpriteRenderer>().color = new Color(0.6f, 1f, 0.6f);
+            if (wtarget != null)
+                wtarget.gameObject.GetComponent<SpriteRenderer>().color = new Color(0.6f, 1f, 0.6f);
         }
         // Else compare target position and higlight acordingly
         else
@@ -151,74 +157,23 @@ public class PositionManager : MonoBehaviour
         }
     }
 
-    /*public void HighlightTargets()
+    public void HighlightPlayers()
     {
-        if (state != GameState.targetSelect) return;
-        if (selectedCharacter == null)
-        {
-            return;
-        }
+        // Highlight all Players
+        rouge.gameObject.GetComponent<SpriteRenderer>().color = new Color(0.6f, 1f, 0.6f);
+        knight.gameObject.GetComponent<SpriteRenderer>().color = new Color(0.6f, 1f, 0.6f);
+        mage.gameObject.GetComponent<SpriteRenderer>().color = new Color(0.6f, 1f, 0.6f);
+    }
 
-        bool isNeutral = false;
-
-        // If character is in neutral position, highlight all enemies
-        if (defaultTop.transform.position == selectedCharacter.transform.position)
-        {
-            isNeutral = true;
-        } 
-        else if (defaultMiddle.transform.position == selectedCharacter.transform.position)
-        {
-            isNeutral = true;
-        } 
-        else if (defaultBottom.transform.position == selectedCharacter.transform.position)
-        {
-            isNeutral = true;
-        }
-
-        if (isNeutral)
-        {
-            // Highlight all enemies
-            foreach (var enemyPos in enemyPositions)
-            {
-                if (enemyPos.GetComponent<Position>().character != null)
-                {
-                    enemyPos.GetComponent<Position>().character.gameObject.GetComponent<SpriteRenderer>().color = new Color(0.6f, 1f, 0.6f);
-                }
-            }
-        }
-        else
-        {
-            GameObject target;
-
-            // Check for valid North target
-            target = selectedCharacter.GetComponent<PCManager>().NorthFlankCharacter;
-            if (target != null)
-            {
-                target.GetComponent<SpriteRenderer>().color = new Color(0.6f, 1f, 0.6f);
-            }
-                
-            // Check for valid East target
-            target = selectedCharacter.GetComponent<PCManager>().EastFlankCharacter;
-            if (target != null)
-            {
-                target.GetComponent<SpriteRenderer>().color = new Color(0.6f, 1f, 0.6f);
-            }
-
-            // Check for valid South target
-            target = selectedCharacter.GetComponent<PCManager>().SouthFlankCharacter;
-            if (target != null)
-            {
-                target.GetComponent<SpriteRenderer>().color = new Color(0.6f, 1f, 0.6f);
-            }
-                
-            // Check for valid West target
-            target = selectedCharacter.GetComponent<PCManager>().WestFlankCharacter;
-            if (target != null)
-            {
-                target.GetComponent<SpriteRenderer>().color = new Color(0.6f, 1f, 0.6f);
-            }
-        }
-    }*/
+    public void HighlightSelf(string player)
+    {
+        if (player == "Rouge")
+            rouge.gameObject.GetComponent<SpriteRenderer>().color = new Color(0.6f, 1f, 0.6f);
+        if (player == "Knight")
+            knight.gameObject.GetComponent<SpriteRenderer>().color = new Color(0.6f, 1f, 0.6f);
+        if (player == "Mage")
+            mage.gameObject.GetComponent<SpriteRenderer>().color = new Color(0.6f, 1f, 0.6f);
+    }
 
     public void UnhighlightTargets()
     {
@@ -229,7 +184,9 @@ public class PositionManager : MonoBehaviour
                 enemyPos.GetComponent<Position>().character.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
             }
         }
-        
+        rouge.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+        knight.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+        mage.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
     }
 
     public void ResetTurn()

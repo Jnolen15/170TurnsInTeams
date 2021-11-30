@@ -22,6 +22,7 @@ public class Attack : ScriptableObject  //This really should be called attack ba
     [SerializeField]
     string location = "A";
 
+    [Header("Either: Enemy, Player, Self")]
     [SerializeField]
     string target = "Enemy";
 
@@ -48,5 +49,15 @@ public class Attack : ScriptableObject  //This really should be called attack ba
     public string Location
     {
         get { return location; }
+    }
+
+    public string Target
+    {
+        get { return target; }
+    }
+
+    public int Healing
+    {
+        get { return healing; }
     }
 }

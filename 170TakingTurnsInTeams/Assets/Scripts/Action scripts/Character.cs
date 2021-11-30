@@ -10,12 +10,14 @@ public class Character : MonoBehaviour
     baseCharacter _base;
 
     public bool hasAttacked = false;
-    public int health = 120;
+    public int max_health = 120;
+    public int health;
     private GameObject playerHealthText;
     GameObject gameManagers;
 
     void Start()
     {
+        health = max_health;
         playerHealthText = gameObject.transform.Find("Canvas").gameObject;
         playerHealthText.transform.Find("Health").GetComponent<TextMeshProUGUI>().text = "HP: " + health.ToString();
     }

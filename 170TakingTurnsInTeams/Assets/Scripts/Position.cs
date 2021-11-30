@@ -97,8 +97,8 @@ public class Position : MonoBehaviour
                 // Asign new pos
                 asignPosition(pm.selectedCharacter);
                 // Unselect character
-                pm.selectedCharacter.transform.localScale = Vector3.one;
-                pm.selectedCharacter = null;
+                //pm.selectedCharacter.transform.localScale = Vector3.one;
+                //pm.selectedCharacter = null;
                 pm.selectedCharacterlocation = null;
             }
             else
@@ -108,9 +108,16 @@ public class Position : MonoBehaviour
                     Debug.Log("Clicked on: " + character.name);
                     if (pm.state == PositionManager.GameState.targetSelect)
                     {
-                        pm.UnhighlightTargets();
-                        pm.state = PositionManager.GameState.charSelect;
-                        return;
+                        // Lazy way of checking for valid target
+                        if (character.GetComponent<SpriteRenderer>().color != Color.white)
+                        {
+                            bm.SetActionTarget(character);
+                        } else
+                        {
+                            pm.UnhighlightTargets();
+                            pm.state = PositionManager.GameState.charSelect;
+                            return;
+                        }
                     }
                     if (!character.GetComponent<Character>().hasAttacked)
                     {

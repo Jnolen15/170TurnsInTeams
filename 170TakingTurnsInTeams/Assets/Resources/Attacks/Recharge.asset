@@ -17,3 +17,5 @@ MonoBehaviour:
   power: 0
   manaPoints: 0
   location: A
+  target: Self
+  healing: 0

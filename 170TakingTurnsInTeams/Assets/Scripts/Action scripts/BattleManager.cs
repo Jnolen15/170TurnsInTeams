@@ -19,6 +19,7 @@ public class BattleManager : MonoBehaviour
 
     public static bool swap = false;
     public int damageNum;
+    public int healNum;
     public bool attackHappend = false;
     public Queue<Action> actionQueue;
     Attack currAttack;
@@ -76,20 +77,36 @@ public class BattleManager : MonoBehaviour
     {
         actionQueue.Enqueue(new Action(currActor, target, currAttack));
         Debug.Log(currActor + " used " + currAttack + " on " + target + ", Action Queue Length: " + actionQueue.Count);
-        damageNum = currAttack.Power;
-        //Debug.Log(currAttack.Power);
-        this.gameObject.GetComponent<ScrollingHealth>().enemiesGettingDamage(target, damageNum);
-        currActor.GetComponent<Character>().hasAttacked = true;
-        currActor.GetComponent<SpriteRenderer>().color = new Color(0.5f, 0.5f, 0.5f);
-        posManager.UnhighlightTargets();
-        posManager.UnselectChar();
-        posManager.state = PositionManager.GameState.charSelect;
+        // If its an attack on an enemy
+        if (currAttack.Target == "Enemy")
+        {
+            damageNum = currAttack.Power;
+            this.gameObject.GetComponent<ScrollingHealth>().enemiesGettingDamage(target, damageNum);
+            currActor.GetComponent<Character>().hasAttacked = true;
+            currActor.GetComponent<SpriteRenderer>().color = new Color(0.5f, 0.5f, 0.5f);
+            posManager.UnhighlightTargets();
+            posManager.UnselectChar();
+            posManager.state = PositionManager.GameState.charSelect;
 
-        //calls function to make enemy attack the player character that just attacked them
-        target.GetComponent<EnemyManager>().Attack(currActor);
+            //calls function to make enemy attack the player character that just attacked them
+            target.GetComponent<EnemyManager>().Attack(currActor);
+        }
+        // If its a healing on a player
+        if (currAttack.Target == "Player" || currAttack.Target == "Self")
+        {
+            Debug.Log("Heal!");
+            healNum = currAttack.Healing;
+            this.gameObject.GetComponent<ScrollingHealth>().playersGettingHealing(target, healNum);
+            currActor.GetComponent<Character>().hasAttacked = true;
+            currActor.GetComponent<SpriteRenderer>().color = new Color(0.5f, 0.5f, 0.5f);
+            posManager.UnhighlightTargets();
+            posManager.UnselectChar();
+            posManager.state = PositionManager.GameState.charSelect;
+        }
 
         currActor = null;
         currAttack = null;
+
     }
 
 }

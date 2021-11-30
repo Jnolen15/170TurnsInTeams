@@ -791,6 +791,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _base: {fileID: 11400000, guid: 38264c4285df75145b0edbdd2f0ec585, type: 2}
   hasAttacked: 0
+  max_health: 120
   health: 120
 --- !u!114 &348656940
 MonoBehaviour:
@@ -1326,6 +1327,7 @@ MonoBehaviour:
   posManager: {fileID: 1559894463}
   nameText: {fileID: 2120241735}
   damageNum: 0
+  healNum: 0
   attackHappend: 0
   currActor: {fileID: 0}
 --- !u!4 &737241791
@@ -2793,6 +2795,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _base: {fileID: 11400000, guid: b1bad47dbe631a844ac80b995b6dc12c, type: 2}
   hasAttacked: 0
+  max_health: 100
   health: 100
 --- !u!114 &1263858729
 MonoBehaviour:
@@ -3623,6 +3626,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _base: {fileID: 11400000, guid: 88a1bdd3eea59184c8e01d907100b099, type: 2}
   hasAttacked: 0
+  max_health: 180
   health: 180
 --- !u!114 &1617895303
 MonoBehaviour:

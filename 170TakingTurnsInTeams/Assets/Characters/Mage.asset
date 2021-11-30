@@ -16,6 +16,6 @@ MonoBehaviour:
   - attackBase: {fileID: 11400000, guid: f1e74cd614a84354392eb22b77210335, type: 2}
   - attackBase: {fileID: 11400000, guid: 22bcba8f29f346d419706e1db19bd2ee, type: 2}
   - attackBase: {fileID: 11400000, guid: 72318a64cd933eb4cb4552f903289aa3, type: 2}
-  - attackBase: {fileID: 11400000, guid: f69473815721615438a1aae35618ae6f, type: 2}
-  - attackBase: {fileID: 11400000, guid: ffdcd98300daffd4489b7c6cb82fdfad, type: 2}
   - attackBase: {fileID: 11400000, guid: 2218b472e8e506d4a8bf5b1aa7766eb7, type: 2}
+  - attackBase: {fileID: 11400000, guid: ffdcd98300daffd4489b7c6cb82fdfad, type: 2}
+  - attackBase: {fileID: 11400000, guid: f69473815721615438a1aae35618ae6f, type: 2}

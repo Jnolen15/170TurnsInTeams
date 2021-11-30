@@ -41,10 +41,30 @@ public class ActionSelector : MonoBehaviour
                 return;
             }
         }
+
         battleManager.posManager.UnhighlightTargets();
         Attack attack = Resources.Load("Attacks/" + actionTexts[idx].text) as Attack;
-        battleManager.AddActionToQueue(attack);
-        battleManager.posManager.HighlightTargets(attack.Location);
-        Debug.Log("Picked" + attack.name);
+
+        // Target Enemies
+        if (attack.Target == "Enemy")
+        {
+            battleManager.AddActionToQueue(attack);
+            battleManager.posManager.HighlightTargets(attack.Location);
+            Debug.Log("Picked" + attack.name);
+        }
+        // Target Players
+        if (attack.Target == "Player")
+        {
+            battleManager.AddActionToQueue(attack);
+            battleManager.posManager.HighlightPlayers();
+            Debug.Log("Picked" + attack.name);
+        }
+        // Target Players
+        if (attack.Target == "Self")
+        {
+            battleManager.AddActionToQueue(attack);
+            battleManager.posManager.HighlightSelf(battleManager.posManager.selectedCharacter.name);
+            Debug.Log("Picked" + attack.name);
+        }
     }
 }

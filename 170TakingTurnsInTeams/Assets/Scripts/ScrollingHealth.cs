@@ -78,6 +78,16 @@ public class ScrollingHealth : MonoBehaviour
 
         StartCoroutine(playerHealthScrollingDown());
     }
+
+    public void playersGettingHealing(GameObject target, int healing)
+    {
+        playerToAttack = target;
+
+        heal = healing;
+
+        StartCoroutine(healthScrollingUp());
+    }
+
     public IEnumerator healthScrollingDown()
     {
 
@@ -85,18 +95,12 @@ public class ScrollingHealth : MonoBehaviour
         {
 
             int i = 0;
-            while (i < healthdamage && !healing)
+            while (i < healthdamage)
             {
 
                 yield return new WaitForSeconds(healthScrollTimer);
 
                 targetToAttack.GetComponent<EnemyHealth>().health -= 1;
-                //Debug.Log(enemyHealth);
-                if (healing || heal > healthdamage)
-                {
-                    healthdamage = 0;
-                    break;
-                }
                 i++;
 
             }
@@ -107,7 +111,7 @@ public class ScrollingHealth : MonoBehaviour
     public IEnumerator playerHealthScrollingDown()
     {
 
-        if (playerHealth > 0)
+        if (playerToAttack.GetComponent<Character>().health > 0)
         {
 
             int i = 0;
@@ -132,14 +136,15 @@ public class ScrollingHealth : MonoBehaviour
 
     IEnumerator healthScrollingUp()
     {
-        if (playerHealth > 0)
+        if (playerToAttack.GetComponent<Character>().health > 0)
         {
             int i = 0;
-            while (i < heal && playerHealth < max_health)
+            while (i < heal && playerToAttack.GetComponent<Character>().health < playerToAttack.GetComponent<Character>().max_health)
             {
                 yield return new WaitForSeconds(healthScrollTimer);
-                playerHealth += 1;
-                if (playerHealth >= max_health || healthdamage > heal)
+                playerToAttack.GetComponent<Character>().health += 1;
+                Debug.Log(playerToAttack.GetComponent<Character>().health);
+                if (playerToAttack.GetComponent<Character>().health >= max_health || healthdamage > heal)
                 {
                     heal = 0;
                     break;
