@@ -63,145 +63,103 @@ public class EnemyManager : MonoBehaviour
     }
 
     //this is called in the battlemanager script
-    //  There definitly is a better way to organize this, but I wanted to get something
-    //  running quickly, may be worth going back later and cleaning up
-    public void Attack(GameObject target){
-        //Unity docs says its inclusive, but it doesn't seem like it is
-        //   if this causes errors, just change 4 to 3
-        int rando = Random.Range(0,4);  
-        //split up based on position so that the enemy has access to different moves based
-        //  on where the player is
-        if(NorthFlankCharacter == target){
-            //the player that just attacked the enemy is in the north position (above enemy)
-            print("NORTH");
-            
-            switch(rando){
-                case 3:
-                    //print("first move");
-                    attack = Resources.Load("Attacks/" + "RandomAttack1") as Attack;
-                    
-                    Debug.Log(attack);
-                    break;
-                case 2:
-                    //print("second move");
-                    attack = Resources.Load("Attacks/" + "RandomAttack1") as Attack;
-                    
-                    Debug.Log(attack);
+    public void Attack(GameObject target)
+    {
+
+        if (classtype == classeTypes.Spider) // Spider attack moveset
+        {
+            int coinflip1 = Random.Range(0, 2); // decides base attack for all directions
+            int coinflip2 = Random.Range(0, 3); // decides if base attack is swapped with laser attack
+            int coinflip3 = Random.Range(0, 3); // decides if base attack is swapped with web attack
+
+            switch (coinflip1)
+            {
+                case 0:
+                    attack = Resources.Load("Attacks/Enemy/" + "Spider Poke") as Attack;
                     break;
                 case 1:
-                    //print("third move");
-                    attack = Resources.Load("Attacks/" + "RandomAttack1") as Attack;
-
-                    Debug.Log(attack);
+                    attack = Resources.Load("Attacks/Enemy/" + "Spider Slash") as Attack;
                     break;
-                case 0:
-                    //print("fourth move");
-                    attack = Resources.Load("Attacks/" + "RandomAttack1") as Attack;
-
-                    Debug.Log(attack);
-                    break;  
             }
+
+            if (WestFlankCharacter == target)
+            {
+                if (coinflip2 == 0)
+                {
+                    attack = Resources.Load("Attacks/Enemy/" + "Spider Laser") as Attack;
+                }
+            }
+            if (EastFlankCharacter == target)
+            {
+                if (coinflip3 == 0)
+                {
+                    attack = Resources.Load("Attacks/Enemy/" + "Spider Web") as Attack;
+                }
+            }
+            // executes chosen attack
+            Debug.Log(attack);
             gameManagers.GetComponent<ScrollingHealth>().playersGettingDamage(target, attack.Power);
         }
-        if(SouthFlankCharacter == target){
-            //the player that just attacked the enemy is in the south position (below enemy)
-            print("SOUTH");
 
-            switch (rando)
+        if (classtype == classeTypes.Dog) // Dog attack moveset
+        {
+            int randoFront = Random.Range(0, 3); // chooses from 3 forward-facing moves
+            int randoElse = Random.Range(0, 2); // all other directions have 2 moves to choose from
+
+            if (WestFlankCharacter == target)
             {
-                case 3:
-                    //print("first move");
-                    attack = Resources.Load("Attacks/" + "RandomAttack1") as Attack;
-
-                    Debug.Log(attack);
-                    break;
-                case 2:
-                    //print("second move");
-                    attack = Resources.Load("Attacks/" + "RandomAttack1") as Attack;
-
-                    Debug.Log(attack);
-                    break;
-                case 1:
-                    //print("third move");
-                    attack = Resources.Load("Attacks/" + "RandomAttack1") as Attack;
-
-                    Debug.Log(attack);
-                    break;
-                case 0:
-                    //print("fourth move");
-                    attack = Resources.Load("Attacks/" + "RandomAttack1") as Attack;
-
-                    Debug.Log(attack);
-                    break;
+                switch (randoFront)
+                {
+                    case 2:
+                        attack = Resources.Load("Attacks/Enemy/" + "Dog Bite") as Attack;
+                        break;
+                    case 1:
+                        attack = Resources.Load("Attacks/Enemy/" + "Dog Claw") as Attack;
+                        break;
+                    case 0:
+                        attack = Resources.Load("Attacks/Enemy/" + "Dog Laser") as Attack;
+                        break;
+                }
             }
-            gameManagers.GetComponent<ScrollingHealth>().playersGettingDamage(target, attack.Power);
-        }
-        if(EastFlankCharacter == target){
-            //the player that just attacked the enemy is in the east position (right of enemy)
-            print("EAST");
-
-            switch (rando)
+            if (NorthFlankCharacter == target)
             {
-                case 3:
-                    //print("first move");
-                    attack = Resources.Load("Attacks/" + "RandomAttack1") as Attack;
-
-                    Debug.Log(attack);
-                    break;
-                case 2:
-                    //print("second move");
-                    attack = Resources.Load("Attacks/" + "RandomAttack1") as Attack;
-
-                    Debug.Log(attack);
-                    break;
-                case 1:
-                    //print("third move");
-                    attack = Resources.Load("Attacks/" + "RandomAttack1") as Attack;
-
-                    Debug.Log(attack);
-                    break;
-                case 0:
-                    //print("fourth move");
-                    attack = Resources.Load("Attacks/" + "RandomAttack1") as Attack;
-
-                    Debug.Log(attack);
-                    break;
+                switch (randoElse)
+                {
+                    case 1:
+                        attack = Resources.Load("Attacks/Enemy/" + "Dog Sweep 1") as Attack;
+                        break;
+                    case 0:
+                        attack = Resources.Load("Attacks/Enemy/" + "Dog Punch 1") as Attack;
+                        break;
+                }
             }
-            gameManagers.GetComponent<ScrollingHealth>().playersGettingDamage(target, attack.Power);
-        }
-        if(WestFlankCharacter == target){
-            //the player that just attacked the enemy is in the west position (left of enemy)
-            print("WEST");
-
-            switch (rando)
+            if (SouthFlankCharacter == target)
             {
-                case 3:
-                    //print("first move");
-                    attack = Resources.Load("Attacks/" + "RandomAttack1") as Attack;
-
-                    Debug.Log(attack);
-                    break;
-                case 2:
-                    //print("second move");
-                    attack = Resources.Load("Attacks/" + "RandomAttack1") as Attack;
-
-                    Debug.Log(attack);
-                    break;
-                case 1:
-                    //print("third move");
-                    attack = Resources.Load("Attacks/" + "RandomAttack1") as Attack;
-
-                    Debug.Log(attack);
-                    break;
-                case 0:
-                    //print("fourth move");
-                    attack = Resources.Load("Attacks/" + "RandomAttack1") as Attack;
-
-                    Debug.Log(attack);
-                    break;
+                switch (randoElse)
+                {
+                    case 1:
+                        attack = Resources.Load("Attacks/Enemy/" + "Dog Sweep 2") as Attack;
+                        break;
+                    case 0:
+                        attack = Resources.Load("Attacks/Enemy/" + "Dog Punch 2") as Attack;
+                        break;
+                }
             }
+            if (EastFlankCharacter == target)
+            {
+                switch (randoElse)
+                {
+                    case 1:
+                        attack = Resources.Load("Attacks/Enemy/" + "Dog Whip") as Attack;
+                        break;
+                    case 0:
+                        attack = Resources.Load("Attacks/Enemy/" + "Dog Kick") as Attack;
+                        break;
+                }
+            }
+            // executes chosen attack
+            Debug.Log(attack);
             gameManagers.GetComponent<ScrollingHealth>().playersGettingDamage(target, attack.Power);
         }
     }
-    
 }
