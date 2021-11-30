@@ -13,7 +13,7 @@ public class EnemyHealth : MonoBehaviour
     void Start()
     {
         gameManagers = GameObject.Find("Game managers");
-        damage = gameManagers.GetComponent<ScrollingHealth>();
+        //damage = gameManagers.GetComponent<ScrollingHealth>();
         enemyHealthText = gameObject.transform.Find("Canvas").gameObject;
         enemyHealthText.transform.Find("Text (TMP)").GetComponent<TextMeshProUGUI>().text = "HP: " + health.ToString();
     }
