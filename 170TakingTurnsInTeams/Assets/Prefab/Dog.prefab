@@ -332,6 +332,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 250
+  healthScrollTimer: 0.2
 --- !u!114 &8771888274978247126
 MonoBehaviour:
   m_ObjectHideFlags: 0

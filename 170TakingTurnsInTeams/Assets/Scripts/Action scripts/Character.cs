@@ -14,11 +14,15 @@ public class Character : MonoBehaviour
     public int health;
     public int max_mana = 60;
     public int mana;
+    private bool healing = false;
+    private int moreDamage;
+    public float healthScrollTimer;
     private GameObject playerHealthText;
     private GameObject playerManaText;
     private GameObject indicator;
     public string indicatorColor = "White";
     GameObject gameManagers;
+    IEnumerator inst = null;
 
     void Start()
     {
@@ -31,6 +35,76 @@ public class Character : MonoBehaviour
         playerHealthText.transform.Find("Health").GetComponent<TextMeshProUGUI>().text = "HP: " + health.ToString();
         playerManaText = gameObject.transform.Find("Canvas").gameObject;
         playerManaText.transform.Find("Mana").GetComponent<TextMeshProUGUI>().text = "MP: " + mana.ToString();
+    }
+    
+
+    public void playerTakingTheDamage(int damage)
+    {
+        moreDamage = damage;
+        inst = playerHealthScrollingDown(damage);
+        StartCoroutine(inst);
+
+    }
+
+    public void playerHealingTheDamage(int heal)
+    {
+
+        healing = true;
+        StopCoroutine(inst);
+        StartCoroutine(healthScrollingUp(heal));
+        
+
+    }
+
+    public IEnumerator playerHealthScrollingDown(int damage)
+    {
+
+        if (health > 0)
+        {
+
+            int i = 0;
+            while (i < damage && !healing)
+            {
+
+                yield return new WaitForSeconds(healthScrollTimer);
+
+                health -= 1;
+                //Debug.Log(enemyHealth);
+                if (healing)
+                {
+                    damage = 0;
+                    break;
+                }
+                i++;
+
+            }
+            damage = 0;
+        }
+    }
+
+    IEnumerator healthScrollingUp(int heal)
+    {
+        if (health > 0)
+        {
+            
+            int i = 0;
+            
+            while (i < heal && health < max_health)
+            {
+                yield return new WaitForSeconds(healthScrollTimer);
+                health += 1;
+                if (health >= max_health || moreDamage > heal)
+                {
+                    healing = false;
+                    heal = 0;
+                    break;
+
+                }
+                i++;
+
+            }
+            heal = 0;
+        }
     }
     public baseCharacter baseChar{
         get{return _base; }
@@ -52,7 +126,7 @@ public class Character : MonoBehaviour
     {
         if(hasAttacked)
             indicatorColor = "Red";
-
+        playerHealthText.transform.Find("Health").GetComponent<TextMeshProUGUI>().text = "HP: " + health.ToString();
         playerManaText.transform.Find("Mana").GetComponent<TextMeshProUGUI>().text = "MP: " + mana.ToString();
 
         if(indicatorColor == "White")
@@ -61,5 +135,10 @@ public class Character : MonoBehaviour
             indicator.GetComponent<SpriteRenderer>().color = Color.green;
         if (indicatorColor == "Red")
             indicator.GetComponent<SpriteRenderer>().color = Color.red;
+
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }
