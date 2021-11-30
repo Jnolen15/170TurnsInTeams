@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Steadfast
   m_EditorClassIdentifier: 
   nameOfAttack: Steadfast
-  desc: Doubles Armor for a turn
+  desc: 'MP: 0 DMG: 0 Location: Adjacent
+
+    Heals slef for 20'
   power: 0
   manaPoints: 0
   location: A

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Recharge
   m_EditorClassIdentifier: 
   nameOfAttack: Recharge
-  desc: "Focus inward and fully refill your MP\r"
+  desc: "MP: 0 DMG: 0 Location: Anywhere\nFocus inward and fully refill your MP\r"
   power: 0
   manaPoints: 0
   location: A

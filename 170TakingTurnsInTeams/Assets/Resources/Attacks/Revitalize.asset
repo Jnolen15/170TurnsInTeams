@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Revitalize
   m_EditorClassIdentifier: 
   nameOfAttack: Revitalize
-  desc: Heal the target 35 HP
+  desc: 'MP: 14 DMG: 0 Location: Anywhere
+
+    Heal the target 35 HP'
   power: 0
   manaPoints: 30
   location: A

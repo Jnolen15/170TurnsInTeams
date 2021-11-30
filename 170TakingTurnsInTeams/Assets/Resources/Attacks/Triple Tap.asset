@@ -13,7 +13,12 @@ MonoBehaviour:
   m_Name: Triple Tap
   m_EditorClassIdentifier: 
   nameOfAttack: Triple Tap
-  desc: Quickly stab an enemy three times in a single motion
+  desc: 'MP: 40 DMG: 10 Location: Adjacent
+
+    Quickly stab an enemy three times
+    in a single motion'
   power: 20
   manaPoints: 10
   location: A
+  target: Enemy
+  healing: 0

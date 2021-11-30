@@ -13,7 +13,10 @@ MonoBehaviour:
   m_Name: Galvanized Shot
   m_EditorClassIdentifier: 
   nameOfAttack: Galvanized Shot
-  desc: "release a concentrated burst of energy at an enemy\u2019s flank"
+  desc: "MP: 12 DMG: 38 Location: North\nrelease a concentrated burst of energy at
+    an enemy\u2019s flank"
   power: 38
-  manaPoints: 20
+  manaPoints: 12
   location: N
+  target: Enemy
+  healing: 0

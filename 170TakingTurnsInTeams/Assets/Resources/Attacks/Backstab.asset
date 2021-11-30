@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: Backstab
   m_EditorClassIdentifier: 
   nameOfAttack: Backstab
-  desc: "Once \u201Cbehind\u201D an enemy, unleash a hidden strike that deals critical
-    damage\r"
+  desc: "MP: 6 DMG: 32 Location: West\nOnce behind an enemy, unleash a hidden strike
+    that deals critical damage\r"
   power: 32
   manaPoints: 6
   location: W
+  target: Enemy
+  healing: 0

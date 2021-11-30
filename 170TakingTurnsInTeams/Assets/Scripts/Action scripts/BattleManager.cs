@@ -79,6 +79,8 @@ public class BattleManager : MonoBehaviour
     {
         actionQueue.Enqueue(new Action(currActor, target, currAttack));
         Debug.Log(currActor + " used " + currAttack + " on " + target + ", Action Queue Length: " + actionQueue.Count);
+        //Spend Mana
+        currActor.GetComponent<Character>().mana -= currAttack.ManaPoints;
         // If its an attack on an enemy
         if (currAttack.Target == "Enemy")
         {

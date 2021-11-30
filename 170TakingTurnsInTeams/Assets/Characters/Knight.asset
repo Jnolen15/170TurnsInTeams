@@ -17,4 +17,3 @@ MonoBehaviour:
   - attackBase: {fileID: 11400000, guid: 82481ff8161eb2d46b79283a90a91ce9, type: 2}
   - attackBase: {fileID: 11400000, guid: 97a4c235078baee4fbfe2e250a871aa2, type: 2}
   - attackBase: {fileID: 11400000, guid: 99929343bb98b204ca3a537c4881ca84, type: 2}
-  - attackBase: {fileID: 11400000, guid: 8cd195ef8b4a6f344823281787b548a9, type: 2}

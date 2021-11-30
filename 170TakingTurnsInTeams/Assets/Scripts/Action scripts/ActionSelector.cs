@@ -40,7 +40,6 @@ public class ActionSelector : MonoBehaviour
 
     public void SetMoveDesc(List<attackSelector> attacks)
     {
-        Debug.Log(descText.Count);
         for (int i = 0; i < descText.Count; ++i)
         {
             descText[i].enabled = true;
@@ -69,26 +68,33 @@ public class ActionSelector : MonoBehaviour
         battleManager.posManager.UnhighlightTargets();
         Attack attack = Resources.Load("Attacks/" + actionTexts[idx].text) as Attack;
 
-        // Target Enemies
-        if (attack.Target == "Enemy")
+        // Target Enemies if player has enough MP
+        if (attack.ManaPoints < battleManager.posManager.selectedCharacter.gameObject.GetComponent<Character>().mana)
         {
-            battleManager.AddActionToQueue(attack);
-            battleManager.posManager.HighlightTargets(attack.Location);
-            Debug.Log("Picked" + attack.name);
+            if (attack.Target == "Enemy")
+            {
+                battleManager.AddActionToQueue(attack);
+                battleManager.posManager.HighlightTargets(attack.Location);
+                Debug.Log("Picked" + attack.name);
+            }
+            // Target Players
+            if (attack.Target == "Player")
+            {
+                battleManager.AddActionToQueue(attack);
+                battleManager.posManager.HighlightPlayers();
+                Debug.Log("Picked" + attack.name);
+            }
+            // Target Players
+            if (attack.Target == "Self")
+            {
+                battleManager.AddActionToQueue(attack);
+                battleManager.posManager.HighlightSelf(battleManager.posManager.selectedCharacter.name);
+                Debug.Log("Picked" + attack.name);
+            }
         }
-        // Target Players
-        if (attack.Target == "Player")
+        else
         {
-            battleManager.AddActionToQueue(attack);
-            battleManager.posManager.HighlightPlayers();
-            Debug.Log("Picked" + attack.name);
-        }
-        // Target Players
-        if (attack.Target == "Self")
-        {
-            battleManager.AddActionToQueue(attack);
-            battleManager.posManager.HighlightSelf(battleManager.posManager.selectedCharacter.name);
-            Debug.Log("Picked" + attack.name);
+            Debug.Log("Not enough Mana!");
         }
     }
 }

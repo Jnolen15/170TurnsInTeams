@@ -13,7 +13,12 @@ MonoBehaviour:
   m_Name: Bolt Snipe
   m_EditorClassIdentifier: 
   nameOfAttack: Bolt Snipe
-  desc: Take aim and fire at the weak point of an enemy
-  power: 30
-  manaPoints: 25
+  desc: 'MP: 0 DMG: 10 Location: Adjacent
+
+    Take aim and fire at the weak point
+    of an enemy'
+  power: 10
+  manaPoints: 0
   location: A
+  target: Enemy
+  healing: 0

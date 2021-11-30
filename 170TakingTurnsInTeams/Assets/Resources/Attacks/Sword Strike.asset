@@ -13,7 +13,11 @@ MonoBehaviour:
   m_Name: Sword Strike
   m_EditorClassIdentifier: 
   nameOfAttack: Sword Strike
-  desc: A basic strike on a single target
+  desc: 'MP: 0 DMG: 16 Location: Adjacent
+
+    A basic strike on a single target'
   power: 16
   manaPoints: 0
   location: A
+  target: Enemy
+  healing: 0
